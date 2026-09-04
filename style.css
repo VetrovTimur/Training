@@ -538,4 +538,9 @@
             h1 {
                 text-align: center;
             }
+
+            .footer div {
+                display: flex;
+                gap: 5px;
+            }
         }
