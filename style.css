@@ -539,3 +539,13 @@ table tbody tr:last-child td {
         text-align: center;
     }
 }
+
+@media (max-width: 375px) {
+    table {
+        font-size: 10px;
+    }
+
+    table thead th {
+        font-size: 11px;
+    }
+}
