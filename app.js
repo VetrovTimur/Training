@@ -1,5 +1,3 @@
-
-
 document.addEventListener('DOMContentLoaded', function() {
     const items = document.querySelectorAll('.fade-item');
     
@@ -18,4 +16,13 @@ document.addEventListener('DOMContentLoaded', function() {
             item.classList.add('visible');
         }, delay);
     });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const title = document.querySelector('.page__title');
+    
+    // Меняем шрифт через 1.6 секунд (после завершения анимации)
+    setTimeout(() => {
+        title.classList.add('font-changed');
+    }, 1600);
 });
