@@ -1,3 +1,5 @@
+
+
 document.addEventListener('DOMContentLoaded', function() {
     const items = document.querySelectorAll('.fade-item');
     

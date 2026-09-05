@@ -1,54 +1,57 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Адский тренировочный портал</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="container">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Адский тренировочный портал</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="portal" id="container">
+            <span class="portal__logo">🏋️‍♂️</span>
+            <h1 class="portal__title"><span class="portal__title-highlight">АДСКИЙ ПОРТАЛ</span></h1>
+            <p class="portal__subtitle">Выбери свою <strong class="portal__subtitle-strong">адскую тренировку</strong> на сегодня</p>
 
-        <span class="logo">🏋️‍♂️</span>
-        <h1><span>АДСКИЙ ПОРТАЛ</span></h1>
-        <p class="subtitle">Выбери свою <strong>адскую тренировку</strong> на сегодня</p>
+            <div class="portal__cards-wrapper" id="cardsWrapper">
+                <div class="portal__cards-inner">
+                    <div class="portal__cards">
+                        
+                        <!-- КАРТОЧКА 1: РУКИ -->
+                        <a href="./hands/hands.html" class="card card--hands" data-delay="0">
+                            <span class="card__icon">💀</span>
+                            <div class="card__day">Понедельник • 75–90 мин</div>
+                            <h2 class="card__title card__title--hands">Бицепс + Трицепс</h2>
+                            <p class="card__description">Руки + Запястья<br>Полный фарш на все пучки</p>
+                            <span class="card__arrow">Перейти →</span>
+                        </a>
 
-        <div class="cards">
+                        <!-- КАРТОЧКА 2: ПЛЕЧИ -->
+                        <a href="./shoulders/shoulders.html" class="card card--shoulders" data-delay="300">
+                            <span class="card__icon">🔥</span>
+                            <div class="card__day">Среда • 50–60 мин</div>
+                            <h2 class="card__title card__title--shoulders">Плечи + Трапеция</h2>
+                            <p class="card__description">Дельты + Трапеция<br>Ширина, объём, рельеф</p>
+                            <span class="card__arrow">Перейти →</span>
+                        </a>
 
-            <!-- КАРТОЧКА 1: РУКИ (ПН) -->
-            <a href="./hands/hands.html" class="card hands">
-                <span class="icon">💀</span>
-                <div class="day">Понедельник • 75–90 мин</div>
-                <h2>Руки</h2>
-                <p>Бицепс + Трицепс + Запястья<br>Полный фарш на все пучки</p>
-                <span class="arrow">Перейти →</span>
-            </a>
+                        <!-- КАРТОЧКА 3: ГРУДЬ + СПИНА -->
+                        <a href="./chest/chest.html" class="card card--chest" data-delay="600">
+                            <span class="card__icon">🏛️</span>
+                            <div class="card__day">Пятница • 60–80 мин</div>
+                            <h2 class="card__title card__title--chest">Грудь + Спина</h2>
+                            <p class="card__description">Жимы + Тяги<br>База для мощного торса</p>
+                            <span class="card__arrow">Перейти →</span>
+                        </a>
 
-            <!-- КАРТОЧКА 2: ПЛЕЧИ + ТРАПЕЦИЯ (СР) -->
-            <a href="./shoulders/shoulders.html" class="card shoulders">
-                <span class="icon">🔥</span>
-                <div class="day">Среда • 50–60 мин</div>
-                <h2>Плечи + Трапеция</h2>
-                <p>Дельты + Трапеция<br>Ширина, объём, рельеф</p>
-                <span class="arrow">Перейти →</span>
-            </a>
+                    </div>
+                </div>
+            </div>
 
-            <!-- КАРТОЧКА 3: ГРУДЬ + СПИНА (ПТ) -->
-            <a href="./chest/chest.html" class="card chest-back">
-                <span class="icon">🏛️</span>
-                <div class="day">Пятница • 60–80 мин</div>
-                <h2>Грудь + Спина</h2>
-                <p>Жимы + Тяги<br>База для мощного торса</p>
-                <span class="arrow">Перейти →</span>
-            </a>
-
+            <div class="portal__footer portal__footer--hidden" id="footer">
+                <span class="portal__footer-quote">Per aspera ad astra!</span> Только вперед, ГаЗззз!
+            </div>
         </div>
-
-        <div class="footer">
-            🦾 <span>Per aspera ad astra.</span> Только вперед, ГаЗззз! 🔥
-        </div>
-
-        <script src="app.js"></script>
-    </div>
-</body>
+        
+        <script src="main.js"></script>
+    </body>
 </html>

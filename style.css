@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Rubik+Dirt&family=Rye&family=UnifrakturMaguntia&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -6,81 +8,111 @@
 
 body {
     background: #080a10;
-    font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+    font-family: "Patrick Hand", cursive;
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 30px 15px;
     color: #e6e8ec;
+    font-size: 16px;
 }
 
-.container {
+/* ===== PORTAL ===== */
+.portal {
     max-width: 1100px;
     width: 100%;
     background: #10131c;
     padding: 40px 30px;
     border-radius: 32px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9), 0 0 80px rgba(245, 200, 66, 0.05);
-    border: 1px solid rgba(255, 215, 0, 0.2);
+    box-shadow: 0 2px 7px rgba(180, 150, 50, 0.5), 0 5px 20px rgba(180, 150, 50, 0.25), 0 5px 40px rgba(180, 150, 50, 0.15);
+    border: 1px solid rgba(255, 215, 0, .6);
     text-align: center;
-    animation: fadeIn 0.8s ease-out;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: portalFadeIn 0.8s ease-out forwards;
+    overflow: hidden;
+    transition: all 1.2s ease;
 }
 
-@keyframes fadeIn {
+@keyframes portalFadeIn {
     0% { opacity: 0; transform: translateY(30px); }
     100% { opacity: 1; transform: translateY(0); }
 }
 
-.logo {
-    font-size: 64px;
+.portal__logo {
+    font-size: 4rem;
     margin-bottom: 10px;
-    display: block;
-}
-
-h1 {
-    font-size: 44px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    margin-bottom: 8px;
-}
-
-h1 span {
     background: linear-gradient(135deg, #f5c842, #ff8c00);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.subtitle {
+.portal__title {
+    font-family: "Rubik Dirt", system-ui;
+    font-size: 4.25rem;
+    font-weight: 400;
+    letter-spacing: 4px;
+    margin-bottom: 8px;
+    background: linear-gradient(135deg, #f5c842, #ff8c00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.portal__subtitle {
     color: #8a9bb0;
-    font-size: 18px;
-    margin-bottom: 40px;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
     letter-spacing: 0.5px;
 }
 
-.subtitle strong {
+.portal__subtitle-strong {
     color: #f5c842;
 }
 
-.cards {
+/* ===== CARDS WRAPPER ===== */
+.portal__cards-wrapper {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.6s ease;
+}
+
+.portal__cards-wrapper--expanded {
+    grid-template-rows: 1fr;
+}
+
+.portal__cards-inner {
+    overflow: hidden;
+}
+
+.portal__cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 25px;
+    padding: 30px;
 }
 
+/* ===== CARD ===== */
 .card {
     background: #181e28;
     border-radius: 24px;
     padding: 30px 20px 25px;
     border-left: 6px solid #f5c842;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-    transition: all 0.3s ease;
     cursor: pointer;
     text-decoration: none;
     color: #e6e8ec;
     display: block;
     position: relative;
     overflow: hidden;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.3s ease;
+}
+
+.card--visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .card:hover {
@@ -92,108 +124,230 @@ h1 span {
     transform: scale(0.97);
 }
 
-.card .icon {
+@media (max-width: 1024px) {
+    .card {
+        padding: 20px 15px;
+        border-left: 4px solid #f5c842;
+    }
+}
+
+@media (max-width: 630px) {
+    .card {
+        padding: 15px 10px;
+        border-left: 2px solid #f5c842;
+    }
+}
+
+@media (max-width: 425px) {
+    .card {
+        padding: 10px 7px;
+    }
+}
+
+/* ===== CARD ELEMENTS ===== */
+.card__icon {
     font-size: 48px;
     display: block;
     margin-bottom: 12px;
 }
 
-.card .day {
+.card__day {
     font-size: 13px;
-    text-transform: uppercase;
+    text-transform: lowercase;
     letter-spacing: 1px;
     color: #8a9bb0;
     margin-bottom: 4px;
 }
 
-.card h2 {
+.card__title {
     font-size: 22px;
     font-weight: 700;
     margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
-.card p {
+.card__description {
     font-size: 14px;
     color: #9aa4b6;
     line-height: 1.5;
 }
 
-.card .arrow {
+.card__arrow {
     display: inline-block;
     margin-top: 16px;
     font-size: 14px;
-    color: #f5c842;
     font-weight: 600;
     letter-spacing: 0.5px;
     transition: transform 0.3s ease;
 }
 
-.card:hover .arrow {
+.card:hover .card__arrow {
     transform: translateX(6px);
 }
 
-.card.hands {
-    border-left-color: #ff4757;
-}
-.card.hands .arrow {
-    color: #ff4757;
-}
-.card.hands:hover {
-    box-shadow: 0 8px 40px rgba(255, 71, 87, 0.15);
+@media (max-width: 630px) {
+    .card__title {
+        font-size: 18px;
+    }
+
+    .card__description {
+        font-size: 12px;
+        color: #9aa4b6;
+        line-height: 1.5;
+    }
+
+    .card__day {
+        font-size: 10px;
+        text-transform: lowercase;
+        letter-spacing: 1px;
+        color: #8a9bb0;
+        margin-bottom: 4px;
+    }
 }
 
-.card.shoulders {
-    border-left-color: #e9b741;
-}
-.card.shoulders .arrow {
-    color: #e9b741;
-}
-.card.shoulders:hover {
-    box-shadow: 0 8px 40px rgba(233, 183, 65, 0.15);
+@media (max-width: 320px) {
+    .card__title {
+        font-size: 16px;
+    }
+
+    .card__description {
+        font-size: 12px;
+        line-height: 1.2;
+    }
 }
 
-.card.chest-back {
-    border-left-color: #4a8de6;
+/* ===== CARD MODIFICATORS ===== */
+/* Hands (красный) */
+.card--hands {
+    border-left-color: #E30102;
 }
-.card.chest-back .arrow {
-    color: #4a8de6;
+.card--hands .card__arrow {
+    color: #E30102;
 }
-.card.chest-back:hover {
-    box-shadow: 0 8px 40px rgba(74, 141, 230, 0.15);
+.card--hands .card__title--hands {
+    color: #E30102;
+}
+.card--hands:hover {
+    box-shadow: 0 2px 5px rgba(227, 1, 2, 0.5), 0 5px 20px rgba(227, 1, 2, 0.25), 0 5px 40px rgba(227, 1, 2, 0.1);
 }
 
-.footer {
+/* Shoulders (фиолетовый) */
+.card--shoulders {
+    border-left-color: #BC00DD;
+}
+.card--shoulders .card__arrow {
+    color: #BC00DD;
+}
+.card--shoulders .card__title--shoulders {
+    color: #BC00DD;
+}
+.card--shoulders:hover {
+    box-shadow: 0 2px 5px rgba(188, 0, 221, 0.5), 0 5px 20px rgba(188, 0, 221, 0.25), 0 5px 40px rgba(188, 0, 221, 0.1);
+}
+
+/* Chest (синий) */
+.card--chest {
+    border-left-color: #0094F0;
+}
+.card--chest .card__arrow {
+    color: #0094F0;
+}
+.card--chest .card__title--chest {
+    color: #0094F0;
+}
+.card--chest:hover {
+    box-shadow: 0 2px 5px rgba(0, 148, 240, 0.5), 0 5px 20px rgba(0, 148, 240, 0.25), 0 5px 40px rgba(0, 148, 240, 0.1);
+}
+
+/* ===== FOOTER ===== */
+.portal__footer {
     margin-top: 40px;
     padding-top: 20px;
-    border-top: 1px solid #1f2733;
-    font-size: 14px;
+    border-top: 1px solid rgba(255, 215, 0, .25);
+    font-size: 1.25rem;
     color: #5f6a7a;
+    opacity: 0;
+    transition: opacity 0.5s ease 1s;
+
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap: 5px;
 }
 
-.footer span {
+.portal__footer--hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+    clip: rect(0 0 0 0);
+}
+
+.portal__footer--visible {
+    opacity: 1;
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 40px 0 0;
+    padding: 20px 0 0;
+    overflow: visible;
+    clip: auto;
+}
+
+.portal__footer-quote {
+    font-family: "UnifrakturMaguntia", cursive;
     color: #f5c842;
+    font-size: 2.25rem;
+    letter-spacing: 2px;
 }
 
+@media (max-width: 425px) {
+    .portal__footer {
+        margin-top: 20px;
+        font-size: 1rem;
+    }
+
+    .portal__footer-quote {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 320px) {
+    .portal__footer {
+        align-items: center;
+        font-size: .8rem;
+    }
+
+    .portal__footer-quote {
+        font-size: 1.2rem;
+    }
+}
+
+/* ===== MEDIA ===== */
 @media (max-width: 900px) {
-    .cards {
+    .portal__cards {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 600px) {
-    .cards {
+    .portal__cards {
         grid-template-columns: 1fr;
     }
 
-    h1 {
+    .portal__title {
         font-size: 30px;
     }
 
-    .logo {
+    .portal__logo {
         font-size: 48px;
     }
 
-    .container {
+    .portal {
         padding: 30px 20px;
     }
 
