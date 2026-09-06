@@ -16,26 +16,28 @@ body {
     padding: 30px 15px;
     color: #e6e8ec;
     font-size: 16px;
+
+    text-wrap: pretty;
+    word-break: keep-all; 
 }
 
-/* ===== PORTAL ===== */
 .portal {
     max-width: 1100px;
     width: 100%;
-    background: #10131c;
-    padding: 40px 30px;
-    border-radius: 32px;
-    box-shadow: 
-        0 2px 7px rgba(180, 150, 50, 0.5), 
-        0 5px 20px rgba(180, 150, 50, 0.25), 
-        0 5px 40px rgba(180, 150, 50, 0.15);
-    border: 1px solid rgba(255, 215, 0, .6);
+    box-shadow: rgba(180, 150, 50, 0.5) 0px 2px 7px, rgba(180, 150, 50, 0.25) 0px 5px 20px, rgba(180, 150, 50, 0.15) 0px 5px 40px;
     text-align: center;
     opacity: 0;
     transform: translateY(30px);
-    animation: portalFadeIn 0.8s ease-out forwards;
+    background: rgb(16, 19, 28);
+    padding: 20px 10px;
+    border-radius: 32px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgba(255, 215, 0, 0.6);
+    border-image: none;
+    animation: 0.8s ease-out 0s 1 normal forwards running portalFadeIn;
     overflow: hidden;
-    transition: all 1.2s ease;
+    transition: 1.2s;
 }
 
 @keyframes portalFadeIn {
@@ -44,8 +46,7 @@ body {
 }
 
 .portal__logo {
-    font-size: 4rem;
-    margin-bottom: 10px;
+    font-size: calc(64px + (88 - 64) * ((100vw - 375px) / (899 - 375)));
     background: linear-gradient(135deg, #f5c842, #ff8c00);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -53,7 +54,7 @@ body {
 
 .portal__title {
     font-family: "Rubik Dirt", system-ui;
-    font-size: 4.25rem;
+    font-size: calc(32px + (65 - 32) * ((100vw - 375px) / (899 - 375)));
     font-weight: 400;
     letter-spacing: 4px;
     margin-bottom: 8px;
@@ -64,13 +65,36 @@ body {
 
 .portal__subtitle {
     color: #8a9bb0;
-    font-size: 1.5rem;
+    /* font-size: 1.5rem; - def */
+    font-size: calc(20px + (26 - 20) * ((100vw - 375px) / (899 - 375)));
     margin-bottom: 20px;
     letter-spacing: 0.5px;
 }
 
 .portal__subtitle-strong {
     color: #f5c842;
+}
+
+@media (min-width: 425px) {
+    .portal__title {
+        margin-top: 10px;
+    }
+}
+
+@media (min-width: 900px) {
+    .portal__logo {
+        font-size: 88px
+    }
+
+    .portal__title {
+        /* font-size: 4.25rem; - def */
+        font-size: 65px
+    }
+
+    .portal__subtitle {
+        /* font-size: 1.5rem; - def */
+        font-size: 26px;
+    }
 }
 
 /* ===== CARDS WRAPPER ===== */
@@ -90,18 +114,34 @@ body {
 
 .portal__cards {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    /* grid-template-columns: repeat(3, 1fr); - def */
+    grid-template-columns: 1fr;
     gap: 25px;
-    padding: 30px;
+    /* padding: 30px; - def */
+    padding: 10px;
+}
+
+@media (min-width: 900px) {
+    .portal__cards {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 40px 30px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .portal__cards {
+        grid-template-columns: repeat(3, 1fr);
+        padding: 40px 30px;
+    }
 }
 
 /* ===== CARD ===== */
 .card {
     background: #181e28;
     border-radius: 24px;
-    padding: 30px 20px 25px;
-    border-left: 6px solid #f5c842;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    padding: 20px 10px 15px;
+    border-left: 2px solid #f5c842;
+    box-shadow: 0 4px 7px rgba(71, 69, 69, 0.4); 
     cursor: pointer;
     text-decoration: none;
     color: #e6e8ec;
@@ -118,44 +158,65 @@ body {
     transform: translateY(0);
 }
 
-.card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 40px rgba(245, 200, 66, 0.15);
-}
-
 .card:active {
     transform: scale(0.97);
 }
 
-@media (max-width: 1024px) {
+@media (min-width: 425px) {
     .card {
-        padding: 20px 15px;
         border-left: 4px solid #f5c842;
+        padding: 25px 15px 20px;
     }
 }
 
-@media (max-width: 630px) {
+@media (min-width: 600px) {
     .card {
-        padding: 15px 10px;
-        border-left: 2px solid #f5c842;
+        margin: 0 auto;
+        width: 80%;
     }
 }
 
-@media (max-width: 425px) {
+@media (min-width: 768px) {
     .card {
-        padding: 10px 7px;
+        margin: 0 auto;
+        width: 70%;
+    }
+}
+
+@media (min-width: 900px) {
+    .card {
+        margin: 0;
+        width: 100%;
+        border-left: 6px solid #f5c842;
+        box-shadow: 0 4px 7px rgba(58, 57, 57, .6), 0 4px 15px rgba(58, 57, 57, .4), 0 8px 20px rgba(58, 57, 57, .2);
+    }
+}
+
+@media (min-width: 1024px) {
+    .card:hover {
+        transform: translateY(-8px);
+    }
+}
+
+@media (min-width: 1200px) {
+    .card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
 }
 
 /* ===== CARD ELEMENTS ===== */
 .card__icon {
-    font-size: 48px;
+    /* font-size: 48px; - def*/
+    font-size: calc(32px + (48 - 32) * ((100vw - 375px) / (899 - 375)));
     display: block;
-    margin-bottom: 12px;
+    /* margin-bottom: 12px; */
+    margin-bottom: calc(7px + (10 - 7) * ((100vw - 375px) / (899 - 375)));
 }
 
 .card__day {
-    font-size: 13px;
+    font-size: 12px;
     text-transform: lowercase;
     letter-spacing: 1px;
     color: #8a9bb0;
@@ -163,8 +224,10 @@ body {
 }
 
 .card__title {
-    font-size: 22px;
-    font-weight: 700;
+    font-family: "Rubik Dirt", system-ui;
+    /* font-size: 22px; - def*/
+    font-size: calc(24px + (40 - 24) * ((100vw - 375px) / (899 - 375)));
+    font-weight: 400;
     margin-bottom: 8px;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -173,55 +236,61 @@ body {
 .card__description {
     font-size: 14px;
     color: #9aa4b6;
-    line-height: 1.5;
+    /* line-height: 1.5; - def*/
+    line-height: 1.3;
+    margin-bottom: 20px;
 }
 
 .card__arrow {
     display: inline-block;
-    margin-top: 16px;
-    font-size: 14px;
+    /* margin-top: 16px; */
+    font-size: calc(16px + (20 - 16) * ((100vw - 375px) / (899 - 375)));
     font-weight: 600;
     letter-spacing: 0.5px;
     transition: transform 0.3s ease;
 }
 
-.card:hover .card__arrow {
-    transform: translateX(6px);
-}
-
-@media (max-width: 630px) {
-    .card__title {
-        font-size: 18px;
+@media (min-width: 425px) {
+    .card__day {
+        font-size: calc(14px + (18 - 14) * ((100vw - 375px) / (899 - 375)));
     }
 
     .card__description {
-        font-size: 12px;
-        color: #9aa4b6;
-        line-height: 1.5;
+        font-size: calc(16px + (24 - 16) * ((100vw - 375px) / (899 - 375)));
+    }
+}
+
+@media (min-width: 900px) {
+    .card__icon {
+        font-size: 48px;
+        margin-bottom: 10px;
     }
 
     .card__day {
-        font-size: 10px;
-        text-transform: lowercase;
-        letter-spacing: 1px;
-        color: #8a9bb0;
-        margin-bottom: 4px;
+        font-size: 18px;
     }
-}
 
-@media (max-width: 320px) {
     .card__title {
-        font-size: 16px;
+        font-size: 40px;
+        margin-bottom: 6px;
     }
 
     .card__description {
-        font-size: 12px;
-        line-height: 1.2;
+        font-size: 24px;
+    }
+
+    .card__arrow {
+        font-size: 20px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .card:hover .card__arrow {
+        transform: translateX(6px) scale(1.2);
     }
 }
 
 /* ===== CARD MODIFICATORS ===== */
-/* Hands (красный) */
 .card--hands {
     border-left-color: #E30102;
 }
@@ -230,9 +299,6 @@ body {
 }
 .card--hands .card__title--hands {
     color: #E30102;
-}
-.card--hands:hover {
-    box-shadow: 0 2px 5px rgba(227, 1, 2, 0.5), 0 5px 20px rgba(227, 1, 2, 0.25), 0 5px 40px rgba(227, 1, 2, 0.1);
 }
 
 /* Shoulders (фиолетовый) */
@@ -245,9 +311,6 @@ body {
 .card--shoulders .card__title--shoulders {
     color: #BC00DD;
 }
-.card--shoulders:hover {
-    box-shadow: 0 2px 5px rgba(188, 0, 221, 0.5), 0 5px 20px rgba(188, 0, 221, 0.25), 0 5px 40px rgba(188, 0, 221, 0.1);
-}
 
 /* Chest (синий) */
 .card--chest {
@@ -259,23 +322,37 @@ body {
 .card--chest .card__title--chest {
     color: #0094F0;
 }
-.card--chest:hover {
-    box-shadow: 0 2px 5px rgba(0, 148, 240, 0.5), 0 5px 20px rgba(0, 148, 240, 0.25), 0 5px 40px rgba(0, 148, 240, 0.1);
+
+@media (min-width: 1024px) {
+    .card--hands:hover {
+        box-shadow: 0 2px 5px rgba(227, 1, 2, 0.5), 0 5px 20px rgba(227, 1, 2, 0.25), 0 5px 40px rgba(227, 1, 2, 0.1);
+    }
+    .card--shoulders:hover {
+        box-shadow: 0 2px 5px rgba(188, 0, 221, 0.5), 0 5px 20px rgba(188, 0, 221, 0.25), 0 5px 40px rgba(188, 0, 221, 0.1);
+    }
+    .card--chest:hover {
+        box-shadow: 0 2px 5px rgba(0, 148, 240, 0.5), 0 5px 20px rgba(0, 148, 240, 0.25), 0 5px 40px rgba(0, 148, 240, 0.1);
+    }
 }
 
 /* ===== FOOTER ===== */
 .portal__footer {
-    margin-top: 40px;
-    padding-top: 20px;
+    /* margin-top: 40px; - def*/
+    margin-top: calc(20px + (40 - 20) * ((100vw - 375px) / (899 - 375)));
+    /* padding: 20px 0px;  - def*/
+    padding: 
+        calc(10px + (20 - 10) * ((100vw - 375px) / (899 - 375))) 
+        calc(5px + (25 - 5) * ((100vw - 375px) / (899 - 375)));
     border-top: 1px solid rgba(255, 215, 0, .25);
-    font-size: 1.25rem;
+    /* font-size: 1.25rem; - def*/
+    font-size: calc(16px + (24 - 16) * ((100vw - 375px) / (899 - 375)));
     color: #5f6a7a;
     opacity: 0;
     transition: opacity 0.5s ease 1s;
 
     display: flex;
     flex-direction: column;
-    align-items: end;
+    align-items: center;
     gap: 5px;
 }
 
@@ -295,8 +372,6 @@ body {
     position: static;
     width: auto;
     height: auto;
-    margin: 40px 0 0;
-    padding: 20px 0 0;
     overflow: visible;
     clip: auto;
 }
@@ -304,57 +379,25 @@ body {
 .portal__footer-quote {
     font-family: "UnifrakturMaguntia", cursive;
     color: #f5c842;
-    font-size: 2.25rem;
-    letter-spacing: 2px;
+    /* font-size: 2.25rem; - def */
+    font-size: calc(30px + (45 - 30) * ((100vw - 375px) / (899 - 375)));
 }
 
-@media (max-width: 425px) {
+@media (min-width: 425px) {
     .portal__footer {
-        margin-top: 20px;
-        font-size: 1rem;
-    }
-
-    .portal__footer-quote {
-        font-size: 1.5rem;
+        align-items: end;
+        letter-spacing: 2px;
     }
 }
 
-@media (max-width: 320px) {
+@media (min-width: 900px) {
     .portal__footer {
-        align-items: center;
-        font-size: .8rem;
+        margin-top: 40px;
+        padding: 20px 25px;
+        font-size: 24px;
     }
-
+    
     .portal__footer-quote {
-        font-size: 1.2rem;
-    }
-}
-
-/* ===== MEDIA ===== */
-@media (max-width: 900px) {
-    .portal__cards {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 600px) {
-    .portal__cards {
-        grid-template-columns: 1fr;
-    }
-
-    .portal__title {
-        font-size: 30px;
-    }
-
-    .portal__logo {
-        font-size: 48px;
-    }
-
-    .portal {
-        padding: 30px 20px;
-    }
-
-    .card {
-        padding: 24px 16px 20px;
+        font-size: 45px;
     }
 }
