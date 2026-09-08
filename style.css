@@ -1,5 +1,48 @@
 @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Rubik+Dirt&family=Rye&family=UnifrakturMaguntia&display=swap');
 
+/* ============================================
+   ROOT VARIABLES
+   ============================================ */
+:root {
+    /* ---------- Breakpoints ---------- */
+    --bp-mobile: 375px;
+    --bp-tablet: 768px;
+    --bp-desktop: 1024px;
+    --bp-wide: 1200px;
+    
+    /* ---------- Spacing ---------- */
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 16px;
+    --space-lg: 24px;
+    --space-xl: 32px;
+    --space-xxl: 48px;
+    
+    /* ---------- Radii ---------- */
+    --radius-sm: 16px;
+    --radius-md: 24px;
+    --radius-lg: 32px;
+    
+    /* ---------- Colors ---------- */
+    --color-gold: #f5c842;
+    --color-gold-dark: #ff8c00;
+    --color-red: #E30102;
+    --color-purple: #BC00DD;
+    --color-blue: #0094F0;
+    --color-bg: #080a10;
+    --color-surface: #10131c;
+    --color-card: #181e28;
+    --color-text: #e6e8ec;
+    --color-text-secondary: #8a9bb0;
+    --color-text-muted: #5f6a7a;
+    
+    /* ---------- Base font size (fallback) ---------- */
+    --fs-base: 16px;
+}
+
+/* ============================================
+   RESET & BASE
+   ============================================ */
 * {
     margin: 0;
     padding: 0;
@@ -7,37 +50,39 @@
 }
 
 body {
-    background: #080a10;
+    background: var(--color-bg);
     font-family: "Patrick Hand", cursive;
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 30px 15px;
-    color: #e6e8ec;
-    font-size: 16px;
-
+    color: var(--color-text);
+    font-size: var(--fs-base);
     text-wrap: pretty;
-    word-break: keep-all; 
+    word-break: keep-all;
 }
 
+/* ============================================
+   PORTAL CONTAINER
+   ============================================ */
 .portal {
     max-width: 1100px;
     width: 100%;
-    box-shadow: rgba(180, 150, 50, 0.5) 0px 2px 7px, rgba(180, 150, 50, 0.25) 0px 5px 20px, rgba(180, 150, 50, 0.15) 0px 5px 40px;
+    background: var(--color-surface);
+    padding: 20px 10px;
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(255, 215, 0, 0.6);
+    box-shadow: 
+        0 2px 7px rgba(180, 150, 50, 0.5),
+        0 5px 20px rgba(180, 150, 50, 0.25),
+        0 5px 40px rgba(180, 150, 50, 0.15);
     text-align: center;
     opacity: 0;
     transform: translateY(30px);
-    background: rgb(16, 19, 28);
-    padding: 20px 10px;
-    border-radius: 32px;
-    border-width: 1px;
-    border-style: solid;
-    border-color: rgba(255, 215, 0, 0.6);
-    border-image: none;
-    animation: 0.8s ease-out 0s 1 normal forwards running portalFadeIn;
+    animation: portalFadeIn 0.8s ease-out forwards;
     overflow: hidden;
-    transition: 1.2s;
+    transition: 1.2s ease;
 }
 
 @keyframes portalFadeIn {
@@ -45,59 +90,45 @@ body {
     100% { opacity: 1; transform: translateY(0); }
 }
 
+/* ============================================
+   PORTAL ELEMENTS
+   ============================================ */
+
+/* ---- Logo ---- */
 .portal__logo {
-    font-size: calc(64px + (88 - 64) * ((100vw - 375px) / (899 - 375)));
-    background: linear-gradient(135deg, #f5c842, #ff8c00);
+    font-size: calc(4rem + 1.5 * ((100vw - 375px) / 524));
+    background: linear-gradient(135deg, var(--color-gold), var(--color-gold-dark));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
+/* ---- Title ---- */
 .portal__title {
     font-family: "Rubik Dirt", system-ui;
-    font-size: calc(32px + (65 - 32) * ((100vw - 375px) / (899 - 375)));
+    font-size: calc(2rem + 2.0625 * ((100vw - 375px) / 524));
     font-weight: 400;
     letter-spacing: 4px;
-    margin-bottom: 8px;
-    background: linear-gradient(135deg, #f5c842, #ff8c00);
+    margin-bottom: var(--space-sm);
+    background: linear-gradient(135deg, var(--color-gold), var(--color-gold-dark));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
+/* ---- Subtitle ---- */
 .portal__subtitle {
-    color: #8a9bb0;
-    /* font-size: 1.5rem; - def */
-    font-size: calc(20px + (26 - 20) * ((100vw - 375px) / (899 - 375)));
-    margin-bottom: 20px;
+    color: var(--color-text-secondary);
+    font-size: calc(1.25rem + 0.375 * ((100vw - 375px) / 524));
+    margin-bottom: var(--space-lg);
     letter-spacing: 0.5px;
 }
 
 .portal__subtitle-strong {
-    color: #f5c842;
+    color: var(--color-gold);
 }
 
-@media (min-width: 425px) {
-    .portal__title {
-        margin-top: 10px;
-    }
-}
-
-@media (min-width: 900px) {
-    .portal__logo {
-        font-size: 88px
-    }
-
-    .portal__title {
-        /* font-size: 4.25rem; - def */
-        font-size: 65px
-    }
-
-    .portal__subtitle {
-        /* font-size: 1.5rem; - def */
-        font-size: 26px;
-    }
-}
-
-/* ===== CARDS WRAPPER ===== */
+/* ============================================
+   CARDS WRAPPER (collapsible animation)
+   ============================================ */
 .portal__cards-wrapper {
     display: grid;
     grid-template-rows: 0fr;
@@ -112,39 +143,30 @@ body {
     overflow: hidden;
 }
 
+/* ============================================
+   CARDS GRID
+   ============================================ */
 .portal__cards {
     display: grid;
-    /* grid-template-columns: repeat(3, 1fr); - def */
     grid-template-columns: 1fr;
-    gap: 25px;
-    /* padding: 30px; - def */
-    padding: 10px;
+    gap: var(--space-lg);
+    padding: var(--space-sm);
 }
 
-@media (min-width: 900px) {
-    .portal__cards {
-        grid-template-columns: repeat(2, 1fr);
-        padding: 40px 30px;
-    }
-}
-
-@media (min-width: 1200px) {
-    .portal__cards {
-        grid-template-columns: repeat(3, 1fr);
-        padding: 40px 30px;
-    }
-}
-
-/* ===== CARD ===== */
+/* ============================================
+   CARD
+   ============================================ */
 .card {
-    background: #181e28;
-    border-radius: 24px;
-    padding: 20px 10px 15px;
-    border-left: 2px solid #f5c842;
-    box-shadow: 0 4px 7px rgba(71, 69, 69, 0.4); 
+    background: var(--color-card);
+    border-radius: var(--radius-md);
+    padding: calc(1.25rem + 0.3125 * ((100vw - 375px) / 524)) 
+             calc(0.625rem + 0.3125 * ((100vw - 375px) / 524)) 
+             calc(0.9375rem + 0.3125 * ((100vw - 375px) / 524));
+    border-left: 2px solid var(--color-gold);
+    box-shadow: 0 4px 7px rgba(71, 69, 69, 0.4);
     cursor: pointer;
     text-decoration: none;
-    color: #e6e8ec;
+    color: var(--color-text);
     display: block;
     position: relative;
     overflow: hidden;
@@ -162,198 +184,101 @@ body {
     transform: scale(0.97);
 }
 
-@media (min-width: 425px) {
-    .card {
-        border-left: 4px solid #f5c842;
-        padding: 25px 15px 20px;
-    }
-}
-
-@media (min-width: 600px) {
-    .card {
-        margin: 0 auto;
-        width: 80%;
-    }
-}
-
-@media (min-width: 768px) {
-    .card {
-        margin: 0 auto;
-        width: 70%;
-    }
-}
-
-@media (min-width: 900px) {
-    .card {
-        margin: 0;
-        width: 100%;
-        border-left: 6px solid #f5c842;
-        box-shadow: 0 4px 7px rgba(58, 57, 57, .6), 0 4px 15px rgba(58, 57, 57, .4), 0 8px 20px rgba(58, 57, 57, .2);
-    }
-}
-
-@media (min-width: 1024px) {
-    .card:hover {
-        transform: translateY(-8px);
-    }
-}
-
-@media (min-width: 1200px) {
-    .card {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
-}
-
-/* ===== CARD ELEMENTS ===== */
+/* ============================================
+   CARD ELEMENTS
+   ============================================ */
 .card__icon {
-    /* font-size: 48px; - def*/
-    font-size: calc(32px + (48 - 32) * ((100vw - 375px) / (899 - 375)));
+    font-size: calc(2rem + 1 * ((100vw - 375px) / 524));
     display: block;
-    /* margin-bottom: 12px; */
-    margin-bottom: calc(7px + (10 - 7) * ((100vw - 375px) / (899 - 375)));
+    margin-bottom: calc(0.4375rem + 0.1875 * ((100vw - 375px) / 524));
 }
 
 .card__day {
-    font-size: 12px;
+    font-size: calc(0.75rem + 0.375 * ((100vw - 375px) / 524));
     text-transform: lowercase;
     letter-spacing: 1px;
-    color: #8a9bb0;
-    margin-bottom: 4px;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-xs);
 }
 
 .card__title {
     font-family: "Rubik Dirt", system-ui;
-    /* font-size: 22px; - def*/
-    font-size: calc(24px + (40 - 24) * ((100vw - 375px) / (899 - 375)));
+    font-size: calc(1.5rem + 1 * ((100vw - 375px) / 524));
     font-weight: 400;
-    margin-bottom: 8px;
+    margin-bottom: var(--space-sm);
     text-transform: uppercase;
     letter-spacing: 2px;
 }
 
 .card__description {
-    font-size: 14px;
+    font-size: calc(0.875rem + 0.625 * ((100vw - 375px) / 524));
     color: #9aa4b6;
-    /* line-height: 1.5; - def*/
     line-height: 1.3;
-    margin-bottom: 20px;
+    margin-bottom: var(--space-lg);
 }
 
 .card__arrow {
     display: inline-block;
-    /* margin-top: 16px; */
-    font-size: calc(16px + (20 - 16) * ((100vw - 375px) / (899 - 375)));
+    font-size: calc(1rem + 0.25 * ((100vw - 375px) / 524));
     font-weight: 600;
     letter-spacing: 0.5px;
     transition: transform 0.3s ease;
 }
 
-@media (min-width: 425px) {
-    .card__day {
-        font-size: calc(14px + (18 - 14) * ((100vw - 375px) / (899 - 375)));
-    }
+/* ============================================
+   CARD MODIFIERS
+   ============================================ */
 
-    .card__description {
-        font-size: calc(16px + (24 - 16) * ((100vw - 375px) / (899 - 375)));
-    }
-}
-
-@media (min-width: 900px) {
-    .card__icon {
-        font-size: 48px;
-        margin-bottom: 10px;
-    }
-
-    .card__day {
-        font-size: 18px;
-    }
-
-    .card__title {
-        font-size: 40px;
-        margin-bottom: 6px;
-    }
-
-    .card__description {
-        font-size: 24px;
-    }
-
-    .card__arrow {
-        font-size: 20px;
-    }
-}
-
-@media (min-width: 1024px) {
-    .card:hover .card__arrow {
-        transform: translateX(6px) scale(1.2);
-    }
-}
-
-/* ===== CARD MODIFICATORS ===== */
+/* ---- Hands (red) ---- */
 .card--hands {
-    border-left-color: #E30102;
+    border-left-color: var(--color-red);
 }
 .card--hands .card__arrow {
-    color: #E30102;
+    color: var(--color-red);
 }
 .card--hands .card__title--hands {
-    color: #E30102;
+    color: var(--color-red);
 }
 
-/* Shoulders (фиолетовый) */
+/* ---- Shoulders (purple) ---- */
 .card--shoulders {
-    border-left-color: #BC00DD;
+    border-left-color: var(--color-purple);
 }
 .card--shoulders .card__arrow {
-    color: #BC00DD;
+    color: var(--color-purple);
 }
 .card--shoulders .card__title--shoulders {
-    color: #BC00DD;
+    color: var(--color-purple);
 }
 
-/* Chest (синий) */
+/* ---- Chest (blue) ---- */
 .card--chest {
-    border-left-color: #0094F0;
+    border-left-color: var(--color-blue);
 }
 .card--chest .card__arrow {
-    color: #0094F0;
+    color: var(--color-blue);
 }
 .card--chest .card__title--chest {
-    color: #0094F0;
+    color: var(--color-blue);
 }
 
-@media (min-width: 1024px) {
-    .card--hands:hover {
-        box-shadow: 0 2px 5px rgba(227, 1, 2, 0.5), 0 5px 20px rgba(227, 1, 2, 0.25), 0 5px 40px rgba(227, 1, 2, 0.1);
-    }
-    .card--shoulders:hover {
-        box-shadow: 0 2px 5px rgba(188, 0, 221, 0.5), 0 5px 20px rgba(188, 0, 221, 0.25), 0 5px 40px rgba(188, 0, 221, 0.1);
-    }
-    .card--chest:hover {
-        box-shadow: 0 2px 5px rgba(0, 148, 240, 0.5), 0 5px 20px rgba(0, 148, 240, 0.25), 0 5px 40px rgba(0, 148, 240, 0.1);
-    }
-}
-
-/* ===== FOOTER ===== */
+/* ============================================
+   FOOTER
+   ============================================ */
 .portal__footer {
-    /* margin-top: 40px; - def*/
-    margin-top: calc(20px + (40 - 20) * ((100vw - 375px) / (899 - 375)));
-    /* padding: 20px 0px;  - def*/
+    margin-top: calc(1.25rem + 1.25 * ((100vw - 375px) / 524));
     padding: 
-        calc(10px + (20 - 10) * ((100vw - 375px) / (899 - 375))) 
-        calc(5px + (25 - 5) * ((100vw - 375px) / (899 - 375)));
-    border-top: 1px solid rgba(255, 215, 0, .25);
-    /* font-size: 1.25rem; - def*/
-    font-size: calc(16px + (24 - 16) * ((100vw - 375px) / (899 - 375)));
-    color: #5f6a7a;
+        calc(0.625rem + 0.625 * ((100vw - 375px) / 524))
+        calc(0.3125rem + 1.25 * ((100vw - 375px) / 524));
+    border-top: 1px solid rgba(255, 215, 0, 0.25);
+    font-size: calc(1rem + 0.5 * ((100vw - 375px) / 524));
+    color: var(--color-text-muted);
     opacity: 0;
     transition: opacity 0.5s ease 1s;
-
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 5px;
+    gap: var(--space-xs);
 }
 
 .portal__footer--hidden {
@@ -378,26 +303,151 @@ body {
 
 .portal__footer-quote {
     font-family: "UnifrakturMaguntia", cursive;
-    color: #f5c842;
-    /* font-size: 2.25rem; - def */
-    font-size: calc(30px + (45 - 30) * ((100vw - 375px) / (899 - 375)));
+    color: var(--color-gold);
+    font-size: calc(1.875rem + 0.9375 * ((100vw - 375px) / 524));
 }
 
+/* ============================================
+   MEDIA QUERIES
+   ============================================ */
+
+/* ---- 425px+ ---- */
 @media (min-width: 425px) {
+    .portal__title {
+        margin-top: var(--space-sm);
+    }
+    
+    .card {
+        border-left-width: 4px;
+        padding: calc(1.5625rem + 0.3125 * ((100vw - 375px) / 524))
+                 calc(0.9375rem + 0.3125 * ((100vw - 375px) / 524))
+                 calc(1.25rem + 0.3125 * ((100vw - 375px) / 524));
+    }
+    
     .portal__footer {
         align-items: end;
         letter-spacing: 2px;
     }
 }
 
+/* ---- 600px+ ---- */
+@media (min-width: 600px) {
+    .card {
+        margin: 0 auto;
+        width: 80%;
+    }
+}
+
+/* ---- 768px+ ---- */
+@media (min-width: 768px) {
+    .card {
+        margin: 0 auto;
+        width: 70%;
+    }
+}
+
+/* ---- 900px+ ---- */
 @media (min-width: 900px) {
+    /* Cards grid */
+    .portal__cards {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 40px 30px;
+    }
+    
+    /* Card */
+    .card {
+        margin: 0;
+        width: 100%;
+        border-left-width: 6px;
+        padding: 30px 20px 25px;
+        box-shadow: 
+            0 4px 7px rgba(58, 57, 57, 0.6),
+            0 4px 15px rgba(58, 57, 57, 0.4),
+            0 8px 20px rgba(58, 57, 57, 0.2);
+    }
+    
+    /* Card elements */
+    .card__icon {
+        font-size: 48px;
+        margin-bottom: 10px;
+    }
+    .card__day {
+        font-size: 18px;
+    }
+    .card__title {
+        font-size: 40px;
+        margin-bottom: 6px;
+    }
+    .card__description {
+        font-size: 24px;
+    }
+    .card__arrow {
+        font-size: 20px;
+    }
+    
+    /* Portal elements */
+    .portal__logo {
+        font-size: 88px;
+    }
+    .portal__title {
+        font-size: 65px;
+    }
+    .portal__subtitle {
+        font-size: 26px;
+    }
+    
+    /* Footer */
     .portal__footer {
         margin-top: 40px;
         padding: 20px 25px;
         font-size: 24px;
     }
-    
     .portal__footer-quote {
         font-size: 45px;
+    }
+}
+
+/* ---- 1024px+ ---- */
+@media (min-width: 1024px) {
+    /* Hover only on desktop */
+    .card:hover {
+        transform: translateY(-8px);
+    }
+    .card:hover .card__arrow {
+        transform: translateX(6px) scale(1.2);
+    }
+    
+    /* Shadow on hover */
+    .card--hands:hover {
+        box-shadow: 
+            0 2px 5px rgba(227, 1, 2, 0.5),
+            0 5px 20px rgba(227, 1, 2, 0.25),
+            0 5px 40px rgba(227, 1, 2, 0.1);
+    }
+    .card--shoulders:hover {
+        box-shadow: 
+            0 2px 5px rgba(188, 0, 221, 0.5),
+            0 5px 20px rgba(188, 0, 221, 0.25),
+            0 5px 40px rgba(188, 0, 221, 0.1);
+    }
+    .card--chest:hover {
+        box-shadow: 
+            0 2px 5px rgba(0, 148, 240, 0.5),
+            0 5px 20px rgba(0, 148, 240, 0.25),
+            0 5px 40px rgba(0, 148, 240, 0.1);
+    }
+}
+
+/* ---- 1200px+ ---- */
+@media (min-width: 1200px) {
+    .portal__cards {
+        grid-template-columns: repeat(3, 1fr);
+        padding: 40px 30px;
+    }
+    
+    .card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
 }
