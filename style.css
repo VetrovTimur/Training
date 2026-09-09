@@ -41,6 +41,52 @@
 }
 
 /* ============================================
+   ВЫДЕЛЕНИЕ (SELECTION) — ДЛЯ ВСЕЙ СТРАНИЦЫ
+   ============================================ */
+::selection {
+    background: var(--color-gold);
+    color: var(--color-text);
+}
+
+::-moz-selection {
+    background: var(--color-gold);
+    color: var(--color-text);
+}
+
+/* РУКИ */
+.card--hands ::selection {
+    background: var(--color-red);
+    color: var(--color-text);
+}
+
+.card--hands ::-moz-selection {
+    background: var(--color-red);
+    color: var(--color-text);
+}
+
+/* ПЛЕЧИ */
+.card--shoulderse ::selection {
+    background: var(--color-purple);
+    color: var(--color-text);
+}
+
+.card--shoulders ::-moz-selection {
+    background: var(--color-purple);
+    color: var(--color-text);
+}
+
+/*  ГРУДЬ + СПИНА */
+.card--chest ::selection {
+    background: var(--color-blue);
+    color: var(--color-text);
+}
+
+.card--chest ::-moz-selection {
+    background: var(--color-blue);
+    color: var(--color-text);
+}
+
+/* ============================================
    RESET & BASE
    ============================================ */
 * {
