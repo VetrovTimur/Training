@@ -1,0 +1,864 @@
+/* ===== ГЛОБАЛЬНЫЕ ===== */
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Rubik+Dirt&family=Rye&family=UnifrakturMaguntia&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #080a10;
+    font-family: "Patrick Hand", cursive;
+    padding: 30px 15px;
+    display: flex;
+    justify-content: center;
+    color: #e6e8ec;
+}
+
+/* ============================================
+   ВЫДЕЛЕНИЕ (SELECTION) — ДЛЯ ВСЕЙ СТРАНИЦЫ
+   ============================================ */
+::selection {
+    background: #E30102;
+    color: #ffffff;
+}
+
+::-moz-selection {
+    background: #E30102;
+    color: #ffffff;
+}
+
+/* Для фиолетовых карточек */
+.card--purple ::selection {
+    background: #BC00DD;
+    color: #ffffff;
+}
+
+.card--purple ::-moz-selection {
+    background: #BC00DD;
+    color: #ffffff;
+}
+
+/* Для синих карточек */
+.card--blue ::selection {
+    background: #0094F0;
+    color: #ffffff;
+}
+
+.card--blue ::-moz-selection {
+    background: #0094F0;
+    color: #ffffff;
+}
+
+/* ============================================
+   PAGE
+   ============================================ */
+.page {
+    max-width: 1100px;
+    width: 100%;
+    background: #10131c;
+    padding: 35px 30px;
+    border-radius: 32px;
+    box-shadow: 
+        0 2px 7px rgba(227, 1, 2, 0.5),
+        0 5px 20px rgba(227, 1, 2, 0.25),
+        0 5px 40px rgba(227, 1, 2, 0.15);
+    border: 1px solid rgba(227, 1, 2, 0.6);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    overflow: hidden;
+}
+
+/* ============================================
+   FADE
+   ============================================ */
+.fade-item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease, height 0.8s ease, margin 0.8s ease, padding 0.8s ease;
+    height: 0;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.fade-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+    height: auto;
+    overflow: visible;
+}
+
+/* ============================================
+   PAGE TITLE
+   ============================================ */
+.page__title {
+    font-size: 50px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-shadow: 
+        0 2px 7px rgba(227, 1, 2, .5),
+        0 5px 15px rgba(227, 1, 2, .25),
+        0 5px 20px rgba(227, 1, 2, .15);
+    text-align: left;
+    height: auto;
+    overflow: visible;
+    padding: 0;
+    margin: 0 0 8px 0;
+}
+
+.page__title-accent {
+    background: linear-gradient(135deg, #E30102, #4A0001);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.page__title.fade-item.visible {
+    margin: 0 0 8px 0;
+}
+
+@keyframes textShrink {
+    0% { font-size: 50px; }
+    100% { font-size: 40px; }
+}
+
+.page__title {
+    animation: textShrink 1.5s ease forwards;
+}
+
+.page__title.font-changed {
+    font-family: "Rubik Dirt", system-ui;
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+.header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(227, 1, 2, 0.25);
+    padding: 0;
+    margin: 0;
+    gap: 15px;
+}
+
+.header.fade-item {
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+}
+
+.header.fade-item.visible {
+    height: auto;
+    overflow: visible;
+    padding: 0 0 20px 0;
+    margin: 0 0 30px 0;
+    opacity: 1;
+}
+
+.header__meta {
+    font-size: 15px;
+    color: #a0a8b8;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.header__tag {
+    background: #1d232e;
+    padding: 5px 16px;
+    border-radius: 40px;
+    font-weight: 500;
+    border: 1px solid #2d3442;
+    color: #cdd3df;
+}
+
+.header__tag i {
+    font-style: normal;
+    color: #E30102;
+}
+
+/* ============================================
+   BADGE
+   ============================================ */
+.badge {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #1d232e;
+    padding: 6px 18px 6px 14px;
+    border-radius: 40px;
+    border: 1px solid #2d3442;
+}
+
+.badge__avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #E30102, #4A0001);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: #0b0d11;
+}
+
+.badge__name {
+    font-weight: 600;
+    color: #e6e8ec;
+    font-size: 14px;
+    letter-spacing: 0.3px;
+}
+
+.badge__label {
+    font-weight: 400;
+    color: #8a9bb0;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+}
+
+/* ============================================
+   CARD
+   ============================================ */
+.card {
+    background: #181e28;
+    border-radius: 24px;
+    border-left: 6px solid #f5c842;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.6), 0 0 30px rgba(0, 0, 0, 0.3);
+}
+
+.card.fade-item {
+    padding: 0;
+    margin: 0;
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+}
+
+.card.fade-item.visible {
+    height: auto;
+    overflow: visible;
+    padding: 20px 24px;
+    margin: 0 0 40px 0;
+    opacity: 1;
+}
+
+/* ===== CARD THEMES ===== */
+.card--purple {
+    border-left-color: #BC00DD;
+    background: linear-gradient(135deg, #1a0d1a, #181e28);
+    box-shadow: 0 2px 20px rgba(188, 0, 221, 0.15), 0 0 40px rgba(188, 0, 221, 0.05);
+}
+
+.card--purple .card__title {
+    color: #BC00DD;
+}
+
+.card--purple .table__highlight {
+    color: #BC00DD;
+}
+
+.card--blue {
+    border-left-color: #0094F0;
+    background: linear-gradient(135deg, #0d1420, #181e28);
+    box-shadow: 0 2px 20px rgba(0, 148, 240, 0.15), 0 0 40px rgba(0, 148, 240, 0.05);
+}
+
+.card--blue .card__title {
+    color: #0094F0;
+}
+
+.card--blue .table__highlight {
+    color: #0094F0;
+}
+
+/* ===== CARD ELEMENTS ===== */
+.card__title {
+    font-family: "Rubik Dirt", system-ui;
+    font-size: 20px;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 6px;
+}
+
+.card__icon {
+    font-size: 26px;
+}
+
+.card__icon--purple {
+    background: radial-gradient(circle at 50% 50%, #BC00DD, #1a0d1a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.card__icon--blue {
+    background: radial-gradient(circle at 50% 50%, #0094F0, #0d1420);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.card__sub {
+    font-size: 14px;
+    color: #9aa4b6;
+    margin-bottom: 16px;
+    padding-left: 40px;
+}
+
+/* ============================================
+   TABLE WRAPPER
+   ============================================ */
+.table-wrapper {
+    overflow-x: visible;
+    -webkit-overflow-scrolling: touch;
+    margin: 0 -24px;
+    padding: 0 24px;
+}
+
+/* ===== SCROLLBAR (общий) ===== */
+.table-wrapper::-webkit-scrollbar {
+    height: 4px;
+}
+
+.table-wrapper::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 2px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb {
+    background: rgba(227, 1, 2, 0.3);
+    border-radius: 2px;
+}
+
+/* ===== SCROLLBAR (фиолетовый) ===== */
+.table-wrapper--purple::-webkit-scrollbar-track {
+    background: rgba(188, 0, 221, 0.05);
+    border-radius: 2px;
+}
+
+.table-wrapper--purple::-webkit-scrollbar-thumb {
+    background: rgba(188, 0, 221, 0.3);
+    border-radius: 2px;
+}
+
+/* ===== SCROLLBAR (синий) ===== */
+.table-wrapper--blue::-webkit-scrollbar-track {
+    background: rgba(0, 148, 240, 0.05);
+    border-radius: 2px;
+}
+
+.table-wrapper--blue::-webkit-scrollbar-thumb {
+    background: rgba(0, 148, 240, 0.3);
+    border-radius: 2px;
+}
+
+/* ============================================
+   TABLE
+   ============================================ */
+.table {
+    width: 100%;
+    min-width: auto;
+    border-collapse: collapse;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.table thead th {
+    text-align: left;
+    padding: 12px 6px 8px 6px;
+    border-bottom: 2px solid #2c3443;
+    color: #b3bccf;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.3px;
+}
+
+.table .thead--purple th {
+    color: #BC00DD;
+}
+
+.table .thead--blue th {
+    color: #0094F0;
+}
+
+.table tbody td {
+    padding: 11px 6px;
+    border-bottom: 1px solid #222a36;
+    vertical-align: middle;
+}
+
+.table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.table__highlight {
+    font-weight: 600;
+}
+
+/* ============================================
+   DIVIDER
+   ============================================ */
+.divider {
+    font-family: "Rubik Dirt", system-ui;
+    background: #1a1f2a;
+    border: 2px dashed #E30102;
+    border-radius: 16px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 400;
+    color: #E30102;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    box-shadow: 0 0 30px rgba(255, 80, 80, 0.15), 0 0 60px rgba(255, 80, 80, 0.06);
+}
+
+.divider.fade-item {
+    padding: 0;
+    margin: 0;
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+}
+
+.divider.fade-item.visible {
+    height: auto;
+    overflow: visible;
+    padding: 14px 20px;
+    margin: 0 0 40px 0;
+    opacity: 1;
+}
+
+.divider__sub {
+    font-size: 14px;
+    font-weight: 400;
+    color: #8a9bb0;
+    letter-spacing: 1px;
+    margin-top: 4px;
+    display: block;
+}
+
+/* ============================================
+   NOTES
+   ============================================ */
+.notes {
+    border-radius: 20px;
+    background: linear-gradient(135deg, #1a0d0d, #181e28);
+    box-shadow: 0 2px 20px rgba(227, 1, 2, 0.15), 0 0 40px rgba(227, 1, 2, 0.05);
+    border-left: 6px solid #E30102;
+}
+
+.notes.fade-item {
+    padding: 0;
+    margin: 0;
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+}
+
+.notes.fade-item.visible {
+    height: auto;
+    overflow: visible;
+    padding: 20px 26px;
+    margin: 30px 0 0 0;
+    opacity: 1;
+}
+
+.notes__title {
+    font-family: "Rubik Dirt", system-ui;
+    font-weight: 400;
+    color: #E30102;
+    font-size: 18px;
+    margin-bottom: 10px;
+    text-shadow: 0 0 20px rgba(245, 200, 66, 0.1);
+}
+
+.notes__list {
+    list-style: none;
+    padding: 0;
+}
+
+.notes__item {
+    padding: 7px 0 7px 28px;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="%23E30102" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>') left center no-repeat;
+    background-size: 18px;
+    color: #c8d0de;
+    line-height: 1.5;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.footer {
+    text-align: right;
+    font-size: 24px;
+    color: #7b879b;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    
+}
+
+.footer.fade-item {
+    padding: 0;
+    margin: 0;
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+}
+
+.footer.fade-item.visible {
+    height: auto;
+    overflow: visible;
+    padding: 25px 0 0 0;
+    margin: 30px 0 0 0;
+    opacity: 1;
+    border-top: 1px solid rgba(227, 1, 2, 0.25);
+}
+
+.footer__arrow {
+    display: inline-block;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: transform 0.3s ease;
+    text-decoration: none;
+    color: #E30102;
+}
+
+.footer__arrow:hover {
+    transform: translateX(6px) scale(1.2);
+}
+
+.footer__arrow:active {
+    transform: scale(1.1);
+}
+
+.footer__content {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap: 5px;
+}
+
+.footer__latin {
+    font-family: "UnifrakturMaguntia", cursive;
+    color: #E30102;
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-shadow: 0 0 20px rgba(245, 200, 66, 0.1);
+    font-size: 45px;
+}
+
+.footer__text {
+    color: #b3bccf;
+}
+
+/* ============================================
+   АДАПТИВ
+   ============================================ */
+@media (max-width: 600px) {
+    .footer {
+        font-size: 20px;
+    }
+
+    .footer__latin {
+        font-size: 33px;
+    }
+}
+
+@media (max-width: 500px) {
+    .footer {
+        margin-bottom: 15px;
+        align-items: end;
+    }
+}
+
+/* ============================================
+   АДАПТИВ (450px и ниже)
+   ============================================ */
+@media (max-width: 450px) {
+    body {
+        padding: 0;
+    }
+
+    .page {
+        box-shadow: none;
+        border: none;
+        border-radius: 0;
+        padding: 0;
+    }
+
+    .page__title {
+        text-align: center;
+        font-size: 22px;
+        margin: 30px 0 !important;
+        padding: 0 10px;
+        animation: none;
+    }
+
+    .header {
+        padding: 0 10px !important;
+        padding-bottom: 20px !important;
+        margin-bottom: 30px !important;
+    }
+
+    .header__meta {
+        font-size: 12px;
+        gap: 8px;
+    }
+
+    .header__tag {
+        font-size: 11px;
+        padding: 3px 10px;
+    }
+
+    .badge {
+        padding: 4px 12px 4px 8px;
+    }
+
+    .badge__avatar {
+        width: 24px;
+        height: 24px;
+        font-size: 13px;
+    }
+
+    .badge__name {
+        font-size: 11px;
+    }
+
+    .card {
+        border-radius: 0;
+        border: none;
+    }
+
+    .card.fade-item.visible {
+        padding: 16px 10px;
+        margin: 0 0 20px 0;
+    }
+
+    .card__title {
+        font-size: 16px;
+        gap: 8px;
+    }
+
+    .card__icon {
+        font-size: 18px;
+    }
+
+    .card__sub {
+        font-size: 12px;
+        padding-left: 0;
+        margin-bottom: 12px;
+    }
+
+    /* ===== ТОЛЬКО ТАБЛИЦА СКРОЛЛИТСЯ ===== */
+    .table-wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin: 0 -10px;
+        padding: 0 10px;
+    }
+
+    .table {
+        min-width: 420px;
+        font-size: 11px;
+    }
+
+    .table thead th {
+        font-size: 10px;
+        padding: 6px 4px;
+        text-align: center;
+    }
+
+    .table tbody td {
+        font-size: 10px;
+        padding: 6px 4px;
+        text-align: center;
+    }
+
+    .divider {
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+        font-size: 14px;
+        padding: 8px 10px;
+    }
+
+    .divider.fade-item.visible {
+        margin: 0 0 16px 0;
+        padding: 8px 10px;
+    }
+
+    .divider__sub {
+        font-size: 11px;
+    }
+
+    .notes {
+        border: none;
+        border-radius: 0;
+    }
+
+    .notes.fade-item.visible {
+        padding: 12px 14px;
+        margin: 16px 0 0 0;
+    }
+
+    .notes__title {
+        font-size: 15px;
+    }
+
+    .notes__item {
+        font-size: 12px;
+        padding: 4px 0 4px 22px;
+        background-size: 15px;
+    }
+
+    .footer {
+        display: flex;
+        gap: 5px;
+        justify-content: center;
+        flex-wrap: wrap;
+        font-size: 16px;
+    }
+
+    .footer.fade-item.visible {
+        margin: 16px 0 0 0;
+        padding: 14px 10px 10px 10px;
+    }
+
+    .footer__latin {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 360px) {
+    .footer {
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer__arrow {
+        order: 1;
+    }
+
+    .footer__content {
+        align-items: center;
+    }
+}
+
+
+
+
+
+/* ============================================
+   DIVIDER ТАЙМЕР (кликабельный) — финальная версия
+   ============================================ */
+
+/* Базовые стили для divider (уже есть, но добавим нужные) */
+.divider {
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+/* Hover — только когда нет классов running и done */
+.divider:hover:not(.running):not(.done) {
+    transform: scale(1.01);
+    box-shadow: 0 0 40px rgba(227, 1, 2, 0.2);
+}
+
+/* Во время работы таймера — отключаем hover */
+.divider.running:hover {
+    transform: none !important;
+    box-shadow: 0 0 30px rgba(245, 200, 66, 0.08) !important;
+}
+
+/* После завершения — отключаем hover полностью */
+.divider.done:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    cursor: default;
+}
+
+/* Таймер внутри */
+.divider__timer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.divider__label {
+    font-size: inherit;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+.divider__time {
+    font-size: inherit;
+    color: inherit;
+    transition: all 0.3s ease;
+    min-width: 40px;
+    text-align: center;
+}
+
+.divider__seconds {
+    font-size: inherit;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+/* Анимация пульсации во время работы */
+.divider.running .divider__time {
+    animation: pulse 0.5s ease infinite alternate;
+}
+
+.divider.running .divider__label {
+    color: #E30102;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0.6; transform: scale(0.95); }
+}
+
+/* Состояние "таймер завершён" — переопределяем всё через !important для надёжности */
+.divider.done .divider__label {
+    font-size: 14px !important;
+    text-decoration: line-through !important;
+    color: #8a9bb0 !important;
+    display: inline !important;
+}
+
+.divider.done .divider__time {
+    display: none !important;
+}
+
+.divider.done .divider__seconds {
+    display: none !important;
+}
+
+.divider.done .divider__sub {
+    font-size: 22px !important;
+    color: #E30102 !important;
+    font-weight: 400 !important;
+    display: block !important;
+    margin-top: 4px !important;
+}
+
+.divider.done {
+    border-color: #4a4a4a !important;
+    opacity: 0.6 !important;
+    box-shadow: none;
+}
+
+/* Убираем hover-эффект для done */
+.divider.done:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    cursor: default !important;
+}
