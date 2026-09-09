@@ -65,7 +65,7 @@
 }
 
 /* ПЛЕЧИ */
-.card--shoulderse ::selection {
+.card--shoulders ::selection {
     background: var(--color-purple);
     color: var(--color-text);
 }
