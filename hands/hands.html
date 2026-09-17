@@ -24,140 +24,270 @@
             </div>
         </header>
 
-        <!-- БЛОК 1: БИЦЕПС -->
+        <!-- БЛОК 1 -->
         <article class="card card--purple reveal">
             <h2 class="card__title">
                 <span class="card__icon" aria-hidden="true">🟣</span> Блок 1: Бицепс — разгон ЦНС
             </h2>
             <p class="card__sub">Забиваем кровь, разгоняем нервную систему, готовим трицепс.</p>
-            <div class="table-wrapper">
-                <table class="table">
-                    <thead>
-                        <tr><th>№</th><th>Упражнение</th><th>Подходы</th><th>Повторы</th><th>Отдых</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td class="table__highlight">1</td><td><strong>W-гриф (средний хват) — пирамида</strong></td><td>6</td><td>20 / 15 / 8 / 3 × макс</td><td>60 сек / 120 сек</td></tr>
-                        <tr><td class="table__highlight">2</td><td><strong>W-гриф на скамье Скотта (узкий хват)</strong></td><td>3</td><td>10</td><td>90 сек</td></tr>
-                        <tr><td class="table__highlight">3</td><td><strong>Молотки с гантелями</strong></td><td>3</td><td>8</td><td>120 сек</td></tr>
-                        <tr><td class="table__highlight">4</td><td><strong>Сгибание обратным хватом (гантели)</strong></td><td>3</td><td>15</td><td>60 сек</td></tr>
-                    </tbody>
-                </table>
-            </div>
+            <ul class="exercises">
+                <li>
+                    <button class="exercise" type="button" data-step="0"
+                            data-name="W-гриф (средний хват) — пирамида"
+                            data-sets="6" data-rest="90">
+                        <span class="exercise__num">1</span>
+                        <span class="exercise__name">W-гриф (средний хват) — пирамида</span>
+                        <span class="exercise__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+                        </span>
+                    </button>
+                </li>
+                <li>
+                    <button class="exercise" type="button" data-step="1"
+                            data-name="W-гриф на скамье Скотта (узкий хват)"
+                            data-sets="3" data-rest="90">
+                        <span class="exercise__num">2</span>
+                        <span class="exercise__name">W-гриф на скамье Скотта (узкий хват)</span>
+                        <span class="exercise__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+                        </span>
+                    </button>
+                </li>
+                <li>
+                    <button class="exercise" type="button" data-step="2"
+                            data-name="Молотки с гантелями"
+                            data-sets="3" data-rest="120">
+                        <span class="exercise__num">3</span>
+                        <span class="exercise__name">Молотки с гантелями</span>
+                        <span class="exercise__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+                        </span>
+                    </button>
+                </li>
+                <li>
+                    <button class="exercise" type="button" data-step="3"
+                            data-name="Сгибание обратным хватом (гантели)"
+                            data-sets="3" data-rest="60">
+                        <span class="exercise__num">4</span>
+                        <span class="exercise__name">Сгибание обратным хватом (гантели)</span>
+                        <span class="exercise__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+                        </span>
+                    </button>
+                </li>
+            </ul>
         </article>
 
-        <div class="divider reveal" data-rest="120" role="button" tabindex="0" aria-label="Таймер отдыха 120 секунд">
+        <div class="divider reveal" data-step="4" data-rest="120" role="button" tabindex="0" aria-label="Таймер отдыха между блоками 120 секунд">
             <div class="divider__timer">
-                <span class="divider__label">⏱ Отдых</span>
+                <span class="divider__label">⏱ Отдых между блоками</span>
                 <span class="divider__time">120</span>
                 <span class="divider__unit">секунд</span>
             </div>
             <span class="divider__sub">переход к трицепсу</span>
         </div>
 
-        <!-- БЛОК 2: ТРИЦЕПС -->
+        <!-- БЛОК 2 -->
         <article class="card card--blue reveal">
             <h2 class="card__title">
                 <span class="card__icon" aria-hidden="true">🔵</span> Блок 2: Трицепс — масса
             </h2>
             <p class="card__sub">Используем феномен: после бицепса трицепс сильнее. Вкладываем базу.</p>
-            <div class="table-wrapper">
-                <table class="table">
-                    <thead>
-                        <tr><th>№</th><th>Упражнение</th><th>Подходы</th><th>Повторы</th><th>Отдых</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td class="table__highlight">5</td><td><strong>Жим лёжа узким хватом — пирамида</strong></td><td>6</td><td>20 / 15 / 8 / 3 × макс</td><td>60 сек / 120 сек</td></tr>
-                        <tr><td class="table__highlight">6</td><td><strong>Французский жим стоя с гантелью</strong></td><td>2</td><td>8</td><td>90 сек</td></tr>
-                        <tr><td class="table__highlight">7</td><td><strong>Разгибание одной рукой из-за головы (боком)</strong></td><td>2</td><td>10</td><td>60 сек</td></tr>
-                    </tbody>
-                </table>
-            </div>
+            <ul class="exercises">
+                <li>
+                    <button class="exercise" type="button" data-step="5"
+                            data-name="Жим лёжа узким хватом — пирамида"
+                            data-sets="6" data-rest="90">
+                        <span class="exercise__num">5</span>
+                        <span class="exercise__name">Жим лёжа узким хватом — пирамида</span>
+                        <span class="exercise__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+                        </span>
+                    </button>
+                </li>
+                <li>
+                    <button class="exercise" type="button" data-step="6"
+                            data-name="Французский жим стоя с гантелью"
+                            data-sets="2" data-rest="90">
+                        <span class="exercise__num">6</span>
+                        <span class="exercise__name">Французский жим стоя с гантелью</span>
+                        <span class="exercise__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+                        </span>
+                    </button>
+                </li>
+                <li>
+                    <button class="exercise" type="button" data-step="7"
+                            data-name="Разгибание одной рукой из-за головы (боком)"
+                            data-sets="2" data-rest="60">
+                        <span class="exercise__num">7</span>
+                        <span class="exercise__name">Разгибание одной рукой из-за головы (боком)</span>
+                        <span class="exercise__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+                        </span>
+                    </button>
+                </li>
+            </ul>
         </article>
 
-        <div class="divider reveal" data-rest="120" role="button" tabindex="0" aria-label="Таймер отдыха 120 секунд">
+        <div class="divider reveal" data-step="8" data-rest="120" role="button" tabindex="0" aria-label="Таймер отдыха между блоками 120 секунд">
             <div class="divider__timer">
-                <span class="divider__label">⏱ Отдых</span>
+                <span class="divider__label">⏱ Отдых между блоками</span>
                 <span class="divider__time">120</span>
                 <span class="divider__unit">секунд</span>
             </div>
             <span class="divider__sub">переход к бицепсу</span>
         </div>
 
-        <!-- БЛОК 3: БИЦЕПС — ДОБИВКА -->
+        <!-- БЛОК 3 -->
         <article class="card card--purple reveal">
             <h2 class="card__title">
                 <span class="card__icon" aria-hidden="true">🟣</span> Блок 3: Бицепс — добивка
             </h2>
             <p class="card__sub">Добиваем бицепс из разных углов. Растяжка, изоляция, пампинг.</p>
-            <div class="table-wrapper">
-                <table class="table">
-                    <thead>
-                        <tr><th>№</th><th>Упражнение</th><th>Подходы</th><th>Повторы</th><th>Отдых</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td class="table__highlight">8</td><td><strong>Сгибание в наклонной скамье (гантели)</strong></td><td>3</td><td>8</td><td>90 сек</td></tr>
-                        <tr><td class="table__highlight">9</td><td><strong>21 (гантели 7 кг, пампинг)</strong></td><td>5</td><td>21</td><td>45 сек</td></tr>
-                    </tbody>
-                </table>
-            </div>
+            <ul class="exercises">
+                <li>
+                    <button class="exercise" type="button" data-step="9"
+                            data-name="Сгибание в наклонной скамье (гантели)"
+                            data-sets="3" data-rest="90">
+                        <span class="exercise__num">8</span>
+                        <span class="exercise__name">Сгибание в наклонной скамье (гантели)</span>
+                        <span class="exercise__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+                        </span>
+                    </button>
+                </li>
+                <li>
+                    <button class="exercise" type="button" data-step="10"
+                            data-name="21 (гантели 7 кг, пампинг)"
+                            data-sets="5" data-rest="45">
+                        <span class="exercise__num">9</span>
+                        <span class="exercise__name">21 (гантели 7 кг, пампинг)</span>
+                        <span class="exercise__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+                        </span>
+                    </button>
+                </li>
+            </ul>
         </article>
 
-        <div class="divider reveal" data-rest="120" role="button" tabindex="0" aria-label="Таймер отдыха 120 секунд">
+        <div class="divider reveal" data-step="11" data-rest="120" role="button" tabindex="0" aria-label="Таймер отдыха между блоками 120 секунд">
             <div class="divider__timer">
-                <span class="divider__label">⏱ Отдых</span>
+                <span class="divider__label">⏱ Отдых между блоками</span>
                 <span class="divider__time">120</span>
                 <span class="divider__unit">секунд</span>
             </div>
             <span class="divider__sub">переход к трицепсу</span>
         </div>
 
-        <!-- БЛОК 4: ТРИЦЕПС — ДОБИВКА -->
+        <!-- БЛОК 4 -->
         <article class="card card--blue reveal">
             <h2 class="card__title">
                 <span class="card__icon" aria-hidden="true">🔵</span> Блок 4: Трицепс — добивка
             </h2>
             <p class="card__sub">Суперсет и канат — финальный аккорд трицепса.</p>
-            <div class="table-wrapper">
-                <table class="table">
-                    <thead>
-                        <tr><th>№</th><th>Упражнение</th><th>Подходы</th><th>Повторы</th><th>Отдых</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td class="table__highlight">10</td><td><strong>Блок (прямая + обратный хват) — суперсет</strong></td><td>3</td><td>8 / 10</td><td>120 сек</td></tr>
-                        <tr><td class="table__highlight">11</td><td><strong>Разгибание на блоке (косичка)</strong></td><td>3</td><td>10</td><td>90 сек</td></tr>
-                    </tbody>
-                </table>
-            </div>
+            <ul class="exercises">
+                <li>
+                    <button class="exercise" type="button" data-step="12"
+                            data-name="Блок (прямая + обратный хват) — суперсет"
+                            data-sets="3" data-rest="120">
+                        <span class="exercise__num">10</span>
+                        <span class="exercise__name">Блок (прямая + обратный хват) — суперсет</span>
+                        <span class="exercise__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+                        </span>
+                    </button>
+                </li>
+                <li>
+                    <button class="exercise" type="button" data-step="13"
+                            data-name="Разгибание на блоке (косичка)"
+                            data-sets="3" data-rest="90">
+                        <span class="exercise__num">11</span>
+                        <span class="exercise__name">Разгибание на блоке (косичка)</span>
+                        <span class="exercise__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+                        </span>
+                    </button>
+                </li>
+            </ul>
         </article>
 
-        <div class="divider reveal" data-rest="60" role="button" tabindex="0" aria-label="Таймер отдыха 60 секунд">
+        <div class="divider reveal" data-step="14" data-rest="60" role="button" tabindex="0" aria-label="Таймер отдыха между блоками 60 секунд">
             <div class="divider__timer">
-                <span class="divider__label">⏱ Отдых</span>
+                <span class="divider__label">⏱ Отдых между блоками</span>
                 <span class="divider__time">60</span>
                 <span class="divider__unit">секунд</span>
             </div>
             <span class="divider__sub">переход к запястьям</span>
         </div>
 
-        <!-- БЛОК 5: ЗАПЯСТЬЯ -->
+        <!-- БЛОК 5 -->
         <article class="card card--purple reveal">
             <h2 class="card__title">
                 <span class="card__icon" aria-hidden="true">🟣</span> Блок 5: Запястья — финал
             </h2>
             <p class="card__sub">Укрепляем кисти в самом конце, чтобы не мешали хвату.</p>
-            <div class="table-wrapper">
-                <table class="table">
-                    <thead>
-                        <tr><th>№</th><th>Упражнение</th><th>Подходы</th><th>Повторы</th><th>Отдых</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td class="table__highlight">12</td><td><strong>Сгибание в запястьях (штанга, ладони вверх)</strong></td><td>2</td><td>15</td><td>45 сек</td></tr>
-                        <tr><td class="table__highlight">13</td><td><strong>Сгибание в запястьях (штанга, обратный хват)</strong></td><td>2</td><td>15</td><td>45 сек</td></tr>
-                    </tbody>
-                </table>
-            </div>
+            <ul class="exercises">
+                <li>
+                    <button class="exercise" type="button" data-step="15"
+                            data-name="Сгибание в запястьях (штанга, ладони вверх)"
+                            data-sets="2" data-rest="45">
+                        <span class="exercise__num">12</span>
+                        <span class="exercise__name">Сгибание в запястьях (штанга, ладони вверх)</span>
+                        <span class="exercise__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+                        </span>
+                    </button>
+                </li>
+                <li>
+                    <button class="exercise" type="button" data-step="16"
+                            data-name="Сгибание в запястьях (штанга, обратный хват)"
+                            data-sets="2" data-rest="45">
+                        <span class="exercise__num">13</span>
+                        <span class="exercise__name">Сгибание в запястьях (штанга, обратный хват)</span>
+                        <span class="exercise__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+                        </span>
+                    </button>
+                </li>
+            </ul>
         </article>
 
+        <!-- ПРОГРЕСС -->
+        <section class="progress reveal" aria-label="Прогресс тренировки">
+            <div class="progress__head">
+                <span class="progress__title">Прогресс</span>
+                <span class="progress__counter" id="progress-counter">0 / 17</span>
+            </div>
+            <div class="progress__bar">
+                <div class="progress__fill" id="progress-fill"></div>
+            </div>
+        </section>
+
+        <!-- РЕЗУЛЬТАТЫ -->
+        <section class="results reveal" id="results" aria-label="Результаты тренировки">
+            <h2 class="results__title">Результаты тренировки</h2>
+            <div class="results__scroll">
+                <table class="results__table">
+                    <thead>
+                        <tr>
+                            <th>Упражнение</th>
+                            <th>Подход</th>
+                            <th>Повторы</th>
+                            <th>Вес (кг)</th>
+                            <th aria-label="Разминочный"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="results-body"></tbody>
+                </table>
+            </div>
+            <button class="reset" type="button" id="reset-btn">
+                <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg>
+                Начать заново
+            </button>
+        </section>
+
+        <!-- ПОМЕТКИ -->
         <section class="notes reveal">
             <h2 class="notes__title">Пометки</h2>
             <ul class="notes__list">
@@ -176,6 +306,102 @@
             </div>
         </footer>
     </main>
+
+    <!-- МОДАЛЬНОЕ ОКНО -->
+    <div class="modal" id="modal" hidden>
+        <div class="modal__overlay" data-modal-close></div>
+        <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="modal-name" data-active-screen="setup">
+            <button class="modal__close" type="button" aria-label="Закрыть" data-modal-close>
+                <svg viewBox="0 0 24 24" width="16" height="16"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></svg>
+            </button>
+
+            <h3 class="modal__title">Настройка</h3>
+            <p class="modal__name" id="modal-name">Упражнение</p>
+
+            <!-- ЭКРАН 1: НАСТРОЙКА -->
+            <div class="modal__screen is-active" data-screen="setup">
+                <div class="modal__field">
+                    <span class="modal__field-label">Подходы</span>
+                    <div class="stepper">
+                        <button class="stepper__btn" type="button" data-target="m-sets" data-delta="-1" aria-label="Меньше">
+                            <svg viewBox="0 0 24 24" width="16" height="16"><path fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" d="M6 12h12"/></svg>
+                        </button>
+                        <input type="number" id="m-sets" min="1" max="20" step="1" value="4" inputmode="numeric">
+                        <button class="stepper__btn" type="button" data-target="m-sets" data-delta="1" aria-label="Больше">
+                            <svg viewBox="0 0 24 24" width="16" height="16"><path fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" d="M12 6v12M6 12h12"/></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="modal__field">
+                    <span class="modal__field-label">Отдых между подходами (сек)</span>
+                    <div class="stepper">
+                        <button class="stepper__btn" type="button" data-target="m-rest" data-delta="-5" aria-label="Меньше">
+                            <svg viewBox="0 0 24 24" width="16" height="16"><path fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" d="M6 12h12"/></svg>
+                        </button>
+                        <input type="number" id="m-rest" min="0" max="600" step="5" value="90" inputmode="numeric">
+                        <button class="stepper__btn" type="button" data-target="m-rest" data-delta="5" aria-label="Больше">
+                            <svg viewBox="0 0 24 24" width="16" height="16"><path fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" d="M12 6v12M6 12h12"/></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <button class="modal__btn" type="button" id="m-start">Начать</button>
+            </div>
+
+            <!-- ЭКРАН 2: РАБОТА -->
+            <div class="modal__screen" data-screen="work">
+                <p class="modal__step-label">Подход <span id="m-work-set">1</span> из <span id="m-work-total">4</span></p>
+                <p class="modal__status">Работа</p>
+                <p class="modal__timer" id="m-work-timer">0:00</p>
+                <div class="modal__dots" id="m-work-dots"></div>
+                <button class="modal__btn" type="button" id="m-finish">Завершил подход</button>
+            </div>
+
+            <!-- ЭКРАН 3: ВВОД РЕЗУЛЬТАТА -->
+            <div class="modal__screen" data-screen="input">
+                <p class="modal__step-label">Подход <span id="m-input-set">1</span> из <span id="m-input-total">4</span></p>
+                <div class="modal__field">
+                    <span class="modal__field-label">Повторения за подход</span>
+                    <div class="stepper">
+                        <button class="stepper__btn" type="button" data-target="m-reps" data-delta="-1" aria-label="Меньше">
+                            <svg viewBox="0 0 24 24" width="16" height="16"><path fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" d="M6 12h12"/></svg>
+                        </button>
+                        <input type="number" id="m-reps" min="1" max="200" step="1" value="10" inputmode="numeric">
+                        <button class="stepper__btn" type="button" data-target="m-reps" data-delta="1" aria-label="Больше">
+                            <svg viewBox="0 0 24 24" width="16" height="16"><path fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" d="M12 6v12M6 12h12"/></svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="modal__field">
+                    <span class="modal__field-label">Вес, кг</span>
+                    <div class="stepper">
+                        <button class="stepper__btn" type="button" data-target="m-weight" data-delta="-2.5" aria-label="Меньше">
+                            <svg viewBox="0 0 24 24" width="16" height="16"><path fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" d="M6 12h12"/></svg>
+                        </button>
+                        <input type="number" id="m-weight" min="0" max="500" step="0.5" value="20" inputmode="decimal">
+                        <button class="stepper__btn" type="button" data-target="m-weight" data-delta="2.5" aria-label="Больше">
+                            <svg viewBox="0 0 24 24" width="16" height="16"><path fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" d="M12 6v12M6 12h12"/></svg>
+                        </button>
+                    </div>
+                </div>
+                <label class="modal__check">
+                    <input type="checkbox" id="m-warmup">
+                    <span>Разминочный подход (отдых 60 сек)</span>
+                </label>
+                <button class="modal__btn" type="button" id="m-save">Сохранить подход</button>
+            </div>
+
+            <!-- ЭКРАН 4: ОТДЫХ -->
+            <div class="modal__screen" data-screen="rest">
+                <p class="modal__step-label">Отдых после подхода <span id="m-rest-set">1</span></p>
+                <p class="modal__status modal__status--rest">Отдых</p>
+                <p class="modal__timer modal__timer--rest" id="m-rest-timer">1:30</p>
+                <div class="modal__dots" id="m-rest-dots"></div>
+                <button class="modal__btn" type="button" id="m-skip">Пропустить отдых →</button>
+            </div>
+        </div>
+    </div>
 
     <script src="hands.js"></script>
     <script src="block.js"></script>
