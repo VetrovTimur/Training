@@ -1,0 +1,866 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Rubik+Dirt&family=UnifrakturMaguntia&display=swap');
+
+/* ============================================================
+   СОДЕРЖАНИЕ
+   ------------------------------------------------------------
+   01. Root variables
+   02. Reset & Base
+   03. Selection
+   04. Page
+       4.1. Page title
+   05. Header
+       5.1. Meta
+       5.2. Badge
+   06. Reveal system
+   07. Card
+       7.1. Base
+       7.2. Themes
+       7.3. Elements
+   08. Table
+       8.1. Wrapper
+       8.2. Base
+   09. Divider (timer)
+       9.1. Base
+       9.2. Timer elements
+       9.3. Interactive states
+   10. Notes
+   11. Footer
+   12. Reduced motion
+   13. Media queries
+       13.1. Large mobile (min-width: 425px)
+       13.2. Tablet      (min-width: 768px)
+       13.3. Desktop     (min-width: 1024px)
+   ============================================================ */
+
+
+/* ============================================================
+   01. ROOT VARIABLES
+   ============================================================ */
+:root {
+    /* Radii */
+    --radius-sm:   16px;
+    --radius-md:   24px;
+    --radius-lg:   32px;
+    --radius-pill: 40px;
+
+    /* Palette (эталон главной) */
+    --color-gold:       #f5c842;
+    --color-gold-dark:  #ff8c00;
+    --color-red:        #e30102;
+    --color-purple:     #bc00dd;
+    --color-blue:       #0094f0;
+
+    --color-bg:             #080a10;
+    --color-surface:        #10131c;
+    --color-card:           #181e28;
+    --color-text:           #e6e8ec;
+    --color-text-secondary: #8a9bb0;
+    --color-text-muted:     #b3bccf;
+
+    /* RGB helpers (для rgba) */
+    --gold-rgb:      245, 200, 66;
+    --gold-dark-rgb: 255, 140, 0;
+    --red-rgb:       227, 1, 2;
+    --purple-rgb:    188, 0, 221;
+    --blue-rgb:      0, 148, 240;
+
+    /* Theme (главный цвет страницы) — hands = красный */
+    --theme:      var(--color-red);
+    --theme-rgb:  var(--red-rgb);
+    --theme-tint: #1a0d0d;
+
+    /* Motion */
+    --dur:      .6s;
+    --ease-out: cubic-bezier(.22, .61, .36, 1);
+
+    /* Base */
+    --fs-base: 16px;
+
+    interpolate-size: allow-keywords;
+}
+
+
+/* ============================================================
+   02. RESET & BASE
+   ============================================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    min-height: 100vh;
+    padding: 0;
+
+    font-family: "Patrick Hand", cursive;
+    font-size: var(--fs-base);
+    color: var(--color-text);
+    background: var(--color-bg);
+
+    text-wrap: pretty;
+    word-break: keep-all;
+}
+
+
+/* ============================================================
+   03. SELECTION
+   ============================================================ */
+::selection      { background: var(--theme); color: #fff; }
+::-moz-selection { background: var(--theme); color: #fff; }
+
+.card--purple ::selection      { background: var(--color-purple); color: #fff; }
+.card--purple ::-moz-selection { background: var(--color-purple); color: #fff; }
+
+.card--blue ::selection      { background: var(--color-blue); color: #fff; }
+.card--blue ::-moz-selection { background: var(--color-blue); color: #fff; }
+
+
+/* ============================================================
+   04. PAGE
+   ============================================================ */
+.page {
+    width: 100%;
+    max-width: 1100px;
+    padding: 0;
+
+    background: var(--color-surface);
+    text-align: left;
+
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity .8s ease, transform .8s var(--ease-out);
+}
+
+.page.is-ready {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ---- 4.1. Page title ---- */
+.page__title {
+    padding: 0 10px;
+    margin: 30px 0;
+
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 1.2;
+    letter-spacing: 1px;
+    text-align: center;
+
+    text-shadow:
+        0 2px 7px  rgba(var(--theme-rgb), .5),
+        0 5px 15px rgba(var(--theme-rgb), .25),
+        0 5px 20px rgba(var(--theme-rgb), .15);
+
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity var(--dur) ease, transform var(--dur) var(--ease-out);
+}
+
+.page__title.is-shown {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.page__title-accent {
+    background: linear-gradient(135deg, var(--color-red), #4a0001);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+.page__title.is-font-changed {
+    font-family: "Rubik Dirt", system-ui;
+}
+
+
+/* ============================================================
+   05. HEADER
+   ============================================================ */
+.header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+
+    padding-inline: 10px;
+    border-bottom: 1px solid rgba(var(--theme-rgb), .25);
+
+    /* reveal targets */
+    --reveal-pt: 0;
+    --reveal-pb: 20px;
+    --reveal-mt: 0;
+    --reveal-mb: 30px;
+}
+
+/* ---- 5.1. Meta ---- */
+.header__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    font-size: 12px;
+    color: var(--color-text-secondary);
+}
+
+.header__tag {
+    padding: 3px 10px;
+
+    background: #1d232e;
+    border: 1px solid #2d3442;
+    border-radius: var(--radius-pill);
+
+    font-weight: 500;
+    font-size: 11px;
+    color: #cdd3df;
+}
+
+.header__tag em {
+    font-style: normal;
+    color: var(--theme);
+}
+
+/* ---- 5.2. Badge ---- */
+.badge {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 4px 12px 4px 8px;
+
+    background: #1d232e;
+    border: 1px solid #2d3442;
+    border-radius: var(--radius-pill);
+}
+
+.badge__avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 24px;
+    height: 24px;
+
+    background: linear-gradient(135deg, var(--theme), var(--theme-tint));
+    border-radius: 50%;
+
+    font-size: 13px;
+    color: var(--color-bg);
+}
+
+.badge__name {
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: .3px;
+    color: var(--color-text);
+}
+
+.badge__label {
+    font-weight: 400;
+    font-size: 11px;
+    letter-spacing: .5px;
+    color: var(--color-text-secondary);
+}
+
+
+/* ============================================================
+   06. REVEAL SYSTEM
+   ------------------------------------------------------------
+   Единый паттерн раскрытия: JS вешает .is-shown, CSS раскрывает
+   высоту (height: 0 → auto) и отступы. Целевые значения — через
+   CSS-переменные --reveal-pt / -pb / -mt / -mb.
+   ============================================================ */
+.reveal {
+    height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    overflow: hidden;
+
+    opacity: 0;
+    transform: translateY(20px);
+
+    transition:
+        height         var(--dur) var(--ease-out),
+        padding-top    var(--dur) var(--ease-out),
+        padding-bottom var(--dur) var(--ease-out),
+        margin-top     var(--dur) var(--ease-out),
+        margin-bottom  var(--dur) var(--ease-out),
+        opacity        var(--dur) ease,
+        transform      var(--dur) var(--ease-out);
+}
+
+.reveal.is-shown {
+    height: auto;
+    padding-top:    var(--reveal-pt, 0);
+    padding-bottom: var(--reveal-pb, 0);
+    margin-top:     var(--reveal-mt, 0);
+    margin-bottom:  var(--reveal-mb, 0);
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* ============================================================
+   07. CARD
+   ============================================================ */
+
+/* ---- 7.1. Base ---- */
+.card {
+    --card-accent:     var(--color-gold);
+    --card-accent-rgb: var(--gold-rgb);
+    --card-tint:       transparent;
+
+    padding-inline: 10px;
+
+    background: linear-gradient(135deg, var(--card-tint), var(--color-card));
+    border-left: 0 solid var(--card-accent);
+    border-radius: 0;
+
+    box-shadow: 0 2px 20px rgba(0, 0, 0, .6), 0 0 30px rgba(0, 0, 0, .3);
+
+    --reveal-pt: 16px;
+    --reveal-pb: 16px;
+    --reveal-mt: 0;
+    --reveal-mb: 20px;
+}
+
+/* ---- 7.2. Themes ---- */
+.card--purple {
+    --card-accent:     var(--color-purple);
+    --card-accent-rgb: var(--purple-rgb);
+    --card-tint:       #1a0d1a;
+
+    box-shadow:
+        0 2px 20px rgba(var(--purple-rgb), .15),
+        0 0 40px rgba(var(--purple-rgb), .05);
+}
+
+.card--blue {
+    --card-accent:     var(--color-blue);
+    --card-accent-rgb: var(--blue-rgb);
+    --card-tint:       #0d1420;
+
+    box-shadow:
+        0 2px 20px rgba(var(--blue-rgb), .15),
+        0 0 40px rgba(var(--blue-rgb), .05);
+}
+
+/* ---- 7.3. Elements ---- */
+.card__title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    margin-bottom: 6px;
+
+    font-family: "Rubik Dirt", system-ui;
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--card-accent);
+}
+
+.card__icon {
+    font-size: 18px;
+    line-height: 1;
+}
+
+.card__sub {
+    margin-bottom: 12px;
+    font-size: 12px;
+    color: var(--color-text-secondary);
+
+    /* плавная смена цвета (в т.ч. при hover на desktop) */
+    transition: .35s;
+}
+
+
+/* ============================================================
+   08. TABLE
+   ============================================================ */
+
+/* ---- 8.1. Wrapper ---- */
+.table-wrapper {
+    margin: 0 -10px;
+    padding: 0 10px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.table-wrapper::-webkit-scrollbar { height: 4px; }
+
+.table-wrapper::-webkit-scrollbar-track {
+    background: rgba(var(--card-accent-rgb), .05);
+    border-radius: 2px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb {
+    background: rgba(var(--card-accent-rgb), .3);
+    border-radius: 2px;
+}
+
+/* ---- 8.2. Base ---- */
+.table {
+    width: 100%;
+    min-width: 420px;
+    border-collapse: collapse;
+
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.table thead th {
+    padding: 6px 4px;
+    border-bottom: 2px solid #2c3443;
+
+    font-weight: 600;
+    font-size: 10px;
+    letter-spacing: .3px;
+    text-align: center;
+    color: var(--card-accent);
+}
+
+.table tbody td {
+    padding: 6px 4px;
+    border-bottom: 1px solid #222a36;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.table tbody tr:last-child td { border-bottom: none; }
+
+.table__highlight {
+    font-weight: 600;
+    color: var(--card-accent);
+}
+
+
+/* ============================================================
+   09. DIVIDER (TIMER)
+   ============================================================ */
+
+/* ---- 9.1. Base ---- */
+.divider {
+    padding-inline: 10px;
+
+    background: #1a1f2a;
+    border-top:    2px dashed var(--theme);
+    border-bottom: 2px dashed var(--theme);
+    border-radius: 0;
+
+    font-family: "Rubik Dirt", system-ui;
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--theme);
+
+    box-shadow:
+        0 0 30px rgba(var(--theme-rgb), .08),
+        0 0 60px rgba(var(--theme-rgb), .03);
+
+    /* Изоляция: свой stacking context — hover не задевает соседей. */
+    isolation: isolate;
+    transform-origin: center;
+
+    --reveal-pt: 8px;
+    --reveal-pb: 8px;
+    --reveal-mt: 0;
+    --reveal-mb: 16px;
+}
+
+.divider__sub {
+    display: block;
+    margin-top: 4px;
+
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: var(--color-text-secondary);
+}
+
+/* ---- 9.2. Timer elements ---- */
+.divider__timer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.divider__label,
+.divider__time,
+.divider__unit {
+    font-size: inherit;
+    color: inherit;
+    transition: color .3s ease;
+}
+
+.divider__time {
+    min-width: 40px;
+    text-align: center;
+}
+
+/* ---- 9.3. Interactive states ---- */
+.divider[data-rest] {
+    cursor: pointer;
+    user-select: none;
+
+    /* Форсируем слой — без этого hover перерисовывал всё ниже. */
+    will-change: transform, box-shadow;
+
+    /* Явно дублируем reveal-транзишены + добавляем свои быстрые.
+       Иначе .divider[data-rest] перебивал бы .reveal по специфичности,
+       и height/padding/margin/opacity прыгали бы мгновенно. */
+    transition:
+        height         var(--dur) var(--ease-out),
+        padding-top    var(--dur) var(--ease-out),
+        padding-bottom var(--dur) var(--ease-out),
+        margin-top     var(--dur) var(--ease-out),
+        margin-bottom  var(--dur) var(--ease-out),
+        opacity        var(--dur) ease,
+        transform      .25s ease,
+        box-shadow     .25s ease;
+}
+
+/* Hover: поднимаем элемент, размер тени НЕ меняем — только плотность.
+   Одинаковая область перерисовки → нет «волны» мигания вниз. */
+.divider[data-rest]:hover:not(.is-running):not(.is-done) {
+    transform: translateY(-2px);
+    box-shadow:
+        0 0 30px rgba(var(--theme-rgb), .25),
+        0 0 60px rgba(var(--theme-rgb), .1);
+}
+
+.divider.is-running,
+.divider.is-done {
+    /* состояние изменилось — снимаем will-change, слой больше не нужен */
+    will-change: auto;
+}
+
+.divider.is-running {
+    cursor: default;
+    box-shadow: 0 0 30px rgba(var(--theme-rgb), .08);
+}
+
+.divider.is-running .divider__time {
+    animation: divider-pulse .5s ease infinite alternate;
+}
+
+@keyframes divider-pulse {
+    from { opacity: 1;  transform: scale(1);   }
+    to   { opacity: .6; transform: scale(.95); }
+}
+
+.divider.is-done {
+    cursor: default;
+    border-color: #4a4a4a;
+    opacity: .6;
+    box-shadow: none;
+}
+
+.divider.is-done .divider__label {
+    font-size: 14px;
+    text-decoration: line-through;
+    color: var(--color-text-secondary);
+}
+
+.divider.is-done .divider__time,
+.divider.is-done .divider__unit {
+    display: none;
+}
+
+.divider.is-done .divider__sub {
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--theme);
+}
+
+
+/* ============================================================
+   10. NOTES
+   ============================================================ */
+.notes {
+    padding-inline: 14px;
+
+    background: linear-gradient(135deg, var(--theme-tint), var(--color-card));
+    border-radius: 0;
+
+    box-shadow:
+        0 2px 20px rgba(var(--theme-rgb), .15),
+        0 0 40px rgba(var(--theme-rgb), .05);
+
+    --reveal-pt: 12px;
+    --reveal-pb: 12px;
+    --reveal-mt: 16px;
+    --reveal-mb: 0;
+}
+
+.notes__title {
+    margin-bottom: 10px;
+
+    font-family: "Rubik Dirt", system-ui;
+    font-weight: 400;
+    font-size: 15px;
+    color: var(--theme);
+    text-shadow: 0 0 20px rgba(var(--theme-rgb), .1);
+}
+
+.notes__list { list-style: none; }
+
+.notes__item {
+    padding: 4px 0 4px 22px;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="%23e30102" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>') left center no-repeat;
+    background-size: 15px;
+
+    font-size: 12px;
+    line-height: 1.5;
+    color: #c8d0de;
+}
+
+
+/* ============================================================
+   11. FOOTER
+   ============================================================ */
+.footer {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+
+    padding-inline: 10px;
+
+    font-size: 16px;
+    color: #7b879b;
+
+    --reveal-pt: 14px;
+    --reveal-pb: 10px;
+    --reveal-mt: 16px;
+    --reveal-mb: 0;
+}
+
+.footer__back {
+    display: inline-block;
+
+    font-weight: 600;
+    letter-spacing: .5px;
+    color: var(--theme);
+    text-decoration: none;
+
+    transition: transform .3s ease;
+}
+
+.footer__back:hover  { transform: translateX(6px) scale(1.2); }
+.footer__back:active { transform: scale(1.1); }
+
+.footer__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.footer__latin {
+    font-family: "UnifrakturMaguntia", cursive;
+    font-weight: 400;
+    font-size: 30px;
+    letter-spacing: 1px;
+    color: var(--theme);
+    text-shadow: 0 0 20px rgba(var(--theme-rgb), .1);
+}
+
+.footer__text { color: var(--color-text-muted); }
+
+
+/* ============================================================
+   12. REDUCED MOTION
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
+}
+
+
+/* ============================================================
+   13. MEDIA QUERIES
+   ============================================================ */
+
+/* ---- 13.1. Large mobile (min-width: 425px) ----
+   До 424px footer остаётся «стопкой по центру» (как на 320px).
+   С 425px — «← Назад» слева, контент справа (space-between). */
+@media (min-width: 425px) {
+    .footer {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+/* ---- 13.2. Tablet (min-width: 768px) ---- */
+@media (min-width: 768px) {
+    body { padding: 30px 15px; }
+
+    .page {
+        padding: 35px 30px;
+
+        border: 1px solid rgba(var(--theme-rgb), .6);
+        border-radius: var(--radius-lg);
+
+        box-shadow:
+            0 2px 7px  rgba(var(--theme-rgb), .5),
+            0 5px 20px rgba(var(--theme-rgb), .25),
+            0 5px 40px rgba(var(--theme-rgb), .15);
+    }
+
+    .page__title {
+        padding: 0;
+        margin: 0 0 8px;
+
+        font-size: 40px;
+        text-align: left;
+    }
+
+    .page__title.is-shown {
+        animation: page-title-shrink 1.5s ease forwards;
+    }
+
+    .header {
+        padding-inline: 0;
+        --reveal-pb: 20px;
+        --reveal-mb: 30px;
+    }
+
+    .header__meta { gap: 20px; font-size: 15px; }
+    .header__tag  { padding: 5px 16px; font-size: 13px; }
+
+    .badge         { padding: 6px 18px 6px 14px; }
+    .badge__avatar { width: 32px; height: 32px; font-size: 18px; }
+    .badge__name   { font-size: 14px; }
+
+    .card {
+        padding-inline: 24px;
+        border-left-width: 6px;
+        border-radius: var(--radius-md);
+
+        --reveal-pt: 20px;
+        --reveal-pb: 20px;
+        --reveal-mb: 40px;
+    }
+
+    .card__title { font-size: 20px; gap: 12px; }
+    .card__icon  { font-size: 26px; }
+    .card__sub   { padding-left: 40px; margin-bottom: 16px; font-size: 14px; }
+
+    .table-wrapper {
+        margin: 0 -24px;
+        padding: 0 24px;
+        overflow-x: visible;
+    }
+
+    .table { min-width: auto; font-size: 14px; }
+
+    .table thead th {
+        padding: 12px 6px 8px;
+        font-size: 13px;
+        text-align: left;
+    }
+
+    .table tbody td {
+        padding: 11px 6px;
+        text-align: left;
+    }
+
+    .divider {
+        padding-inline: 20px;
+        border: 2px dashed var(--theme);
+        border-radius: var(--radius-sm);
+        font-size: 22px;
+
+        --reveal-pt: 14px;
+        --reveal-pb: 14px;
+        --reveal-mb: 40px;
+    }
+
+    .divider__sub { font-size: 14px; }
+
+    .notes {
+        padding-inline: 26px;
+        border-radius: 20px;
+        border-left: 6px solid var(--theme);
+
+        --reveal-pt: 20px;
+        --reveal-pb: 20px;
+        --reveal-mt: 30px;
+    }
+
+    .notes__title { font-size: 18px; }
+
+    .notes__item {
+        padding: 7px 0 7px 28px;
+        background-size: 18px;
+        font-size: 14px;
+    }
+
+    .footer {
+        padding-inline: 0;
+        justify-content: space-between;
+        font-size: 24px;
+
+        --reveal-pt: 25px;
+        --reveal-pb: 0;
+        --reveal-mt: 30px;
+
+        border-top: 1px solid rgba(var(--theme-rgb), .25);
+    }
+
+    .footer__content { align-items: flex-end; }
+    .footer__latin   { font-size: 45px; }
+}
+
+@keyframes page-title-shrink {
+    from { font-size: 50px; }
+    to   { font-size: 40px; }
+}
+
+
+/* ---- 13.3. Desktop (min-width: 1024px) ---- */
+@media (min-width: 1024px) {
+    .card {
+        will-change: box-shadow;
+        transition:
+            height         var(--dur) var(--ease-out),
+            padding-top    var(--dur) var(--ease-out),
+            padding-bottom var(--dur) var(--ease-out),
+            margin-top     var(--dur) var(--ease-out),
+            margin-bottom  var(--dur) var(--ease-out),
+            opacity        var(--dur) ease,
+            transform      var(--dur) var(--ease-out),
+            box-shadow     .35s ease;
+    }
+
+    /* Размер тени держим одинаковым, меняем только плотность — тот же приём, что и у .divider. */
+    .card:hover {
+        box-shadow:
+            0 2px 20px rgba(var(--card-accent-rgb), .35),
+            0 0 40px rgba(var(--card-accent-rgb), .15);
+    }
+
+    .card:hover .card__sub {
+        color: #fff;
+    }
+}
