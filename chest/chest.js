@@ -377,7 +377,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    /* ---------- 9. Dots ---------- */
+    /* ---------- 9. Dots (без галочек: пройденные — красные, текущая — золотая) ---------- */
     function renderDots(container, total, current) {
         container.innerHTML = '';
         for (let i = 0; i < total; i++) {
@@ -400,13 +400,14 @@ document.addEventListener('DOMContentLoaded', () => {
         return `${m}:${String(r).padStart(2, '0')}`;
     }
 
-    /* ---------- 11. Результаты ---------- */
+    /* ---------- 11. Результаты (группировка + rowspan) ---------- */
     function renderResults() {
         if (!state.results.length) {
             resultsBody.innerHTML = `<tr><td class="results__empty" colspan="5">Пока пусто.</td></tr>`;
             return;
         }
 
+        // Группируем подряд идущие записи по упражнению
         const groups = [];
         state.results.forEach(r => {
             const last = groups[groups.length - 1];

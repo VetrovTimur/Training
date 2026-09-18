@@ -7,36 +7,89 @@
     <link rel="stylesheet" href="chest.css">
 </head>
 <body>
+    <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+            <symbol id="icon-clock" viewBox="0 0 32 32" fill="currentColor" fill-rule="evenodd">
+                <g transform="translate(-12,-340)">
+                <path d="M 28,364.95312 A 1.0606602,1.0606602 0 0 0 26.939453,366.01367 1.0606602,1.0606602 0 0 0 28,367.07422 1.0606602,1.0606602 0 0 0 29.060547,366.01367 1.0606602,1.0606602 0 0 0 28,364.95312 Z"/>
+                <path d="m 33.914062,362.47461 a 1.0606602,1.0606602 0 0 0 -0.675781,0.30664 1.0606602,1.0606602 0 0 0 0,1.5 1.0606602,1.0606602 0 0 0 1.5,0 1.0606602,1.0606602 0 0 0 0,-1.5 1.0606602,1.0606602 0 0 0 -0.824219,-0.30664 z"/>
+                <path d="m 21.935547,362.47461 a 1.0606602,1.0606602 0 0 0 -0.673828,0.30664 1.0606602,1.0606602 0 0 0 0,1.5 1.0606602,1.0606602 0 0 0 1.5,0 1.0606602,1.0606602 0 0 0 0,-1.5 1.0606602,1.0606602 0 0 0 -0.826172,-0.30664 z"/>
+                <path d="m 36.46875,356.48242 a 1.0606602,1.0606602 0 0 0 -1.060547,1.06055 1.0606602,1.0606602 0 0 0 1.060547,1.06055 1.0606602,1.0606602 0 0 0 1.0625,-1.06055 1.0606602,1.0606602 0 0 0 -1.0625,-1.06055 z"/>
+                <path d="m 19.53125,356.48242 a 1.0606602,1.0606602 0 0 0 -1.0625,1.06055 1.0606602,1.0606602 0 0 0 1.0625,1.06055 1.0606602,1.0606602 0 0 0 1.060547,-1.06055 1.0606602,1.0606602 0 0 0 -1.060547,-1.06055 z"/>
+                <path d="m 28,352.01367 a 1,1 0 0 0 -1,1 v 4.58399 l -2.707031,2.70898 a 1,1 0 0 0 0,1.41406 1,1 0 0 0 1.414062,0 l 3,-3 A 1.0001,1.0001 0 0 0 29,358.01367 v -5 a 1,1 0 0 0 -1,-1 z"/>
+                <path d="m 33.914062,350.49609 a 1.0606602,1.0606602 0 0 0 -0.675781,0.3086 1.0606602,1.0606602 0 0 0 0,1.5 1.0606602,1.0606602 0 0 0 1.5,0 1.0606602,1.0606602 0 0 0 0,-1.5 1.0606602,1.0606602 0 0 0 -0.824219,-0.3086 z"/>
+                <path d="m 21.935547,350.49609 a 1.0606602,1.0606602 0 0 0 -0.673828,0.3086 1.0606602,1.0606602 0 0 0 0,1.5 1.0606602,1.0606602 0 0 0 1.5,0 1.0606602,1.0606602 0 0 0 0,-1.5 1.0606602,1.0606602 0 0 0 -0.826172,-0.3086 z"/>
+                <path d="M 28,348.01367 A 1.0606602,1.0606602 0 0 0 26.939453,349.07422 1.0606602,1.0606602 0 0 0 28,350.13477 1.0606602,1.0606602 0 0 0 29.060547,349.07422 1.0606602,1.0606602 0 0 0 28,348.01367 Z"/>
+                <path d="m 26,342.01367 a 1,1 0 0 0 -1,1 1,1 0 0 0 1,1 h 1 v 1.04297 c -6.425484,0.51183 -11.5,5.90234 -11.5,12.45703 0,6.8917 5.6083,12.5 12.5,12.5 6.8917,0 12.5,-5.6083 12.5,-12.5 0,-2.49565 -0.738405,-4.82171 -2.003906,-6.77539 a 1.0001,1.0001 0 0 0 0.111328,-0.0898 l 2.121094,-2.1211 a 1.0001,1.0001 0 0 0 0,-1.41406 l -2.828125,-2.82812 a 1.0001,1.0001 0 0 0 -1.414063,0 l -2.121094,2.12109 A 1.0001,1.0001 0 0 0 34.1875,346.66016 C 32.635016,345.77154 30.875389,345.20603 29,345.05664 v -1.04297 h 1 a 1,1 0 0 0 1,-1 1,1 0 0 0 -1,-1 z m 11.193359,4.39258 1.414063,1.41406 -0.707031,0.70703 -1.414063,-1.41406 z M 28,347.01367 c 5.810822,0 10.5,4.68918 10.5,10.5 0,5.81083 -4.689178,10.5 -10.5,10.5 -5.810822,0 -10.5,-4.68917 -10.5,-10.5 0,-5.81082 4.689178,-10.5 10.5,-10.5 z"/>
+                </g>
+            </symbol>
+            <symbol id="icon-fire" viewBox="0 0 24 24">
+                <path fill="currentColor" d="M12,24c-5,0-9-4-9-9c0-4,2.4-8.2,3.4-9.8C7,4.3,9.8,0,12,0c0.6,0,1,0.4,1,1s-0.4,1-1,1c-1.4,0.2-7,7.4-7,13c0,3.9,3.1,7,7,7s7-3.1,7-7c0-0.8-0.1-1.6-0.3-2.6c-0.5-1.9-1.4-4.1-2.7-6.1c-0.3-0.5-0.2-1.1,0.3-1.4c0.5-0.3,1.1-0.2,1.4,0.3c1.4,2.2,2.4,4.6,3,6.7C20.9,13,21,14.1,21,15C21,20,17,24,12,24z"/>
+                <path fill="currentColor" d="M15,9.9c-0.3,0-0.6-0.1-0.8-0.3C12.1,7.2,11,4.2,11,1c0-0.6,0.4-1,1-1s1,0.4,1,1c0,2.7,1,5.3,2.7,7.3c0.4,0.4,0.3,1-0.1,1.4C15.5,9.8,15.2,9.9,15,9.9z"/>
+                <path fill="currentColor" d="M15,9.9c-0.3,0-0.5-0.1-0.7-0.3c-0.4-0.4-0.4-1,0-1.4c0.7-0.8,1.3-1.7,1.5-2.7C15.9,5,16.5,4.7,17,4.8c0.5,0.1,0.9,0.7,0.7,1.2c-0.3,1.3-1.1,2.6-2,3.6C15.5,9.8,15.2,9.9,15,9.9z"/>
+                <path fill="currentColor" d="M12,24c-2.8,0-5-2.2-5-5c0-3.1,3.1-8,5-8c0.6,0,1,0.4,1,1c0,0.5-0.4,0.9-0.9,1C11.4,13.4,9,16.6,9,19c0,1.7,1.3,3,3,3s3-1.3,3-3c0-0.3-0.1-0.7-0.2-1.2c-0.2-0.9-0.7-1.9-1.3-2.9c-0.3-0.5-0.2-1.1,0.3-1.4c0.5-0.3,1.1-0.2,1.4,0.3c0.7,1.1,1.3,2.4,1.6,3.5c0.1,0.6,0.2,1.1,0.2,1.7C17,21.8,14.8,24,12,24z"/>
+                <path fill="currentColor" d="M13.5,17c-0.3,0-0.6-0.1-0.8-0.3C11.6,15.3,11,13.7,11,12c0-0.6,0.4-1,1-1s1,0.4,1,1c0,1.2,0.4,2.4,1.2,3.3c0.4,0.4,0.3,1-0.1,1.4C14,16.9,13.7,17,13.5,17z"/>
+                <path fill="currentColor" d="M13.5,17c-0.3,0-0.5-0.1-0.7-0.3c-0.4-0.4-0.4-1,0-1.4c0.3-0.3,0.5-0.7,0.6-1.1c0.1-0.5,0.7-0.9,1.2-0.7c0.5,0.1,0.9,0.7,0.7,1.2c-0.2,0.8-0.6,1.5-1.2,2C14,16.9,13.7,17,13.5,17z"/>
+            </symbol>
+            <symbol id="icon-calendar" viewBox="0 0 24 24" fill="none">
+                <path d="M3 9H21M7 3V5M17 3V5M6 12H8M11 12H13M16 12H18M6 15H8M11 15H13M16 15H18M6 18H8M11 18H13M16 18H18M6.2 21H17.8C18.9201 21 19.4802 21 19.908 20.782C20.2843 20.5903 20.5903 20.2843 20.782 19.908C21 19.4802 21 18.9201 21 17.8V8.2C21 7.07989 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V17.8C3 18.9201 3 19.4802 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.07989 21 6.2 21Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </symbol>
+            <symbol id="icon-user" viewBox="0 0 16 16" fill="none">
+                <path d="M8 7C9.65685 7 11 5.65685 11 4C11 2.34315 9.65685 1 8 1C6.34315 1 5 2.34315 5 4C5 5.65685 6.34315 7 8 7Z" fill="currentColor"/>
+            <path d="M14 12C14 10.3431 12.6569 9 11 9H5C3.34315 9 2 10.3431 2 12V15H14V12Z" fill="currentColor"/>
+            </symbol>
+            <symbol id="icon-dot" viewBox="0 0 16 16" fill="none">
+                <circle cx="8" cy="8" r="8" fill="currentColor"/>
+            </symbol>
+    </svg>
+
     <main class="page">
-        <h1 class="page__title">
-            <span class="page__title-accent">Грудь + Спина</span>
-        </h1>
+        <h1 class="page__title">Грудь + Спина</h1>
 
         <header class="header reveal">
-            <div class="header__meta">
-                <span class="header__tag">⏱ 60–80 мин</span>
-                <span class="header__tag">🔥 <em>Грудь + Спина</em></span>
-                <span class="header__tag">🔄 1 раз в неделю (ПТ)</span>
-            </div>
-            <div class="badge">
-                <span class="badge__avatar" aria-hidden="true">👤</span>
-                <span class="badge__name">Тимур Ветров <span class="badge__label">• тренировка</span></span>
-            </div>
+                <div class="header__meta">
+                    <div class="header__tag">
+                        <svg class="header__icon" aria-hidden="true">
+                            <use href="#icon-clock"></use>
+                        </svg>
+                        <span>≈ 90 мин</span>
+                    </div>
+                    <div class="header__tag">
+                        <svg class="header__icon header__icon--accent" aria-hidden="true">
+                            <use href="#icon-fire"></use>
+                        </svg>
+                        <em>Грудь + Спина</em>
+                    </div>
+                    <div class="header__tag">
+                        <svg class="header__icon" aria-hidden="true">
+                            <use href="#icon-calendar"></use>
+                        </svg>
+                        <span>1 раз в неделю (Пт)</span>
+                    </div>
+                </div>
+                <div class="badge">
+                    <svg class="badge__avatar" aria-hidden="true">
+                        <use href="#icon-user"></use>
+                    </svg>
+                    <span class="badge__name">Тимур Ветров <span class="badge__label">• тренировка</span></span>
+                </div>
         </header>
 
         <!-- БЛОК 1: БАЗА -->
         <article class="card card--red reveal">
             <h2 class="card__title">
-                <span class="card__icon" aria-hidden="true">🔴</span> Блок 1: База (жим + тяга)
+                <svg class="card__icon" aria-hidden="true">
+                    <use href="#icon-dot"></use>
+                </svg>
+                Блок 1: База (жим + тяга)
             </h2>
             <p class="card__sub">Закладываем основу массы и силы.</p>
             <ul class="exercises">
                 <li>
                     <button class="exercise" type="button" data-step="0"
-                            data-name="Жим штанги горизонтально — пирамида"
+                            data-name="Жим от груди"
                             data-sets="6" data-rest="120">
                         <span class="exercise__num">1</span>
-                        <span class="exercise__name">Жим штанги горизонтально — пирамида</span>
+                        <span class="exercise__name">Жим от груди</span>
                         <span class="exercise__icon" aria-hidden="true">
                             <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
                         </span>
@@ -45,9 +98,9 @@
                 <li>
                     <button class="exercise" type="button" data-step="1"
                             data-name="Верхние тяги (широкий хват)"
-                            data-sets="3" data-rest="90">
+                            data-sets="4" data-rest="120">
                         <span class="exercise__num">2</span>
-                        <span class="exercise__name">Верхние тяги (широкий хват)</span>
+                        <span class="exercise__name">Верхние тяги (широкий)</span>
                         <span class="exercise__icon" aria-hidden="true">
                             <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
                         </span>
@@ -56,9 +109,9 @@
                 <li>
                     <button class="exercise" type="button" data-step="2"
                             data-name="Верхние тяги (узкий/средний хват)"
-                            data-sets="3" data-rest="90">
+                            data-sets="4" data-rest="90">
                         <span class="exercise__num">3</span>
-                        <span class="exercise__name">Верхние тяги (узкий/средний хват)</span>
+                        <span class="exercise__name">Верхние тяги (узкий)</span>
                         <span class="exercise__icon" aria-hidden="true">
                             <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
                         </span>
@@ -79,16 +132,19 @@
         <!-- БЛОК 2: ДОБИВКА ГРУДИ -->
         <article class="card card--purple reveal">
             <h2 class="card__title">
-                <span class="card__icon" aria-hidden="true">🟣</span> Блок 2: Добивка груди (углы + изоляция)
+                <svg class="card__icon" aria-hidden="true">
+                    <use href="#icon-dot"></use>
+                </svg>
+                Блок 2: Добивка груди (углы + изоляция)
             </h2>
-            <p class="card__sub"><strong>Внимание:</strong> жим на опущенной скамье — твой приоритет, бьёт прямо в низ груди.</p>
+            <p class="card__sub">Красивая проработка всей груди</p>
             <ul class="exercises">
                 <li>
                     <button class="exercise" type="button" data-step="4"
-                            data-name="Жим гантелей на опущенной скамье (низ)"
-                            data-sets="3" data-rest="90">
+                            data-name="Жим гантелей ↓"
+                            data-sets="4" data-rest="90">
                         <span class="exercise__num">4</span>
-                        <span class="exercise__name">Жим гантелей на опущенной скамье (низ)</span>
+                        <span class="exercise__name">Жим гантелей ↓</span>
                         <span class="exercise__icon" aria-hidden="true">
                             <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
                         </span>
@@ -96,10 +152,10 @@
                 </li>
                 <li>
                     <button class="exercise" type="button" data-step="5"
-                            data-name="Жим гантелей на приподнятой скамье (верх)"
-                            data-sets="3" data-rest="90">
+                            data-name="Жим гантелей ↑"
+                            data-sets="4" data-rest="120">
                         <span class="exercise__num">5</span>
-                        <span class="exercise__name">Жим гантелей на приподнятой скамье (верх)</span>
+                        <span class="exercise__name">Жим гантелей ↑</span>
                         <span class="exercise__icon" aria-hidden="true">
                             <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
                         </span>
@@ -107,10 +163,10 @@
                 </li>
                 <li>
                     <button class="exercise" type="button" data-step="6"
-                            data-name="Разводка на горизонтальной скамье"
-                            data-sets="3" data-rest="60">
+                            data-name="Разводка"
+                            data-sets="4" data-rest="90">
                         <span class="exercise__num">6</span>
-                        <span class="exercise__name">Разводка на горизонтальной скамье</span>
+                        <span class="exercise__name">Разводка</span>
                         <span class="exercise__icon" aria-hidden="true">
                             <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
                         </span>
@@ -131,27 +187,19 @@
         <!-- БЛОК 3: ТОЛЩИНА СПИНЫ -->
         <article class="card card--red reveal">
             <h2 class="card__title">
-                <span class="card__icon" aria-hidden="true">🔴</span> Блок 3: Толщина спины (горизонтальные тяги)
+                <svg class="card__icon" aria-hidden="true">
+                    <use href="#icon-dot"></use>
+                </svg>
+                Блок 3: Толщина спины (горизонтальные тяги)
             </h2>
             <p class="card__sub">Глубина спины, ромбовидные, средняя трапеция.</p>
             <ul class="exercises">
                 <li>
                     <button class="exercise" type="button" data-step="8"
-                            data-name="Тяга штанги с Т-грифом — пирамида"
-                            data-sets="4" data-rest="90">
-                        <span class="exercise__num">7</span>
-                        <span class="exercise__name">Тяга штанги с Т-грифом — пирамида</span>
-                        <span class="exercise__icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
-                        </span>
-                    </button>
-                </li>
-                <li>
-                    <button class="exercise" type="button" data-step="9"
                             data-name="Тяги на тросовом тренажёре (раздельные ручки, сидя)"
-                            data-sets="3" data-rest="60">
-                        <span class="exercise__num">8</span>
-                        <span class="exercise__name">Тяги на тросовом тренажёре (раздельные ручки, сидя)</span>
+                            data-sets="6" data-rest="120">
+                        <span class="exercise__num">7</span>
+                        <span class="exercise__name">Горизонтальные тяги</span>
                         <span class="exercise__icon" aria-hidden="true">
                             <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
                         </span>
@@ -160,7 +208,7 @@
             </ul>
         </article>
 
-        <div class="divider reveal" data-step="10" data-rest="60" role="button" tabindex="0" aria-label="Таймер отдыха между блоками 60 секунд">
+        <div class="divider reveal" data-step="9" data-rest="60" role="button" tabindex="0" aria-label="Таймер отдыха между блоками 60 секунд">
             <div class="divider__timer">
                 <span class="divider__label">⏱ Отдых между блоками</span>
                 <span class="divider__time">60</span>
@@ -172,16 +220,30 @@
         <!-- БЛОК 4: ИЗОЛЯЦИЯ + ДОБОЙ -->
         <article class="card card--purple reveal">
             <h2 class="card__title">
-                <span class="card__icon" aria-hidden="true">🟣</span> Блок 4: Изоляция + добой
+                <svg class="card__icon" aria-hidden="true">
+                    <use href="#icon-dot"></use>
+                </svg>
+                Блок 4: Изоляция + добой
             </h2>
             <p class="card__sub">Коронные упражнения для пикового сокращения и поясницы.</p>
             <ul class="exercises">
                 <li>
-                    <button class="exercise" type="button" data-step="11"
-                            data-name="Отжимания от брусьев (с весом)"
+                    <button class="exercise" type="button" data-step="10"
+                            data-name="Отжимания от брусьев"
                             data-sets="3" data-rest="90">
+                        <span class="exercise__num">8</span>
+                        <span class="exercise__name">Отжимания от брусьев</span>
+                        <span class="exercise__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+                        </span>
+                    </button>
+                </li>
+                <li>
+                    <button class="exercise" type="button" data-step="11"
+                            data-name="Бабочка"
+                            data-sets="4" data-rest="60">
                         <span class="exercise__num">9</span>
-                        <span class="exercise__name">Отжимания от брусьев (с весом)</span>
+                        <span class="exercise__name">Бабочка</span>
                         <span class="exercise__icon" aria-hidden="true">
                             <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
                         </span>
@@ -189,21 +251,10 @@
                 </li>
                 <li>
                     <button class="exercise" type="button" data-step="12"
-                            data-name="Бабочка (тренажёр)"
-                            data-sets="3" data-rest="60">
+                            data-name="Гиперэкстензия"
+                            data-sets="4" data-rest="45">
                         <span class="exercise__num">10</span>
-                        <span class="exercise__name">Бабочка (тренажёр)</span>
-                        <span class="exercise__icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
-                        </span>
-                    </button>
-                </li>
-                <li>
-                    <button class="exercise" type="button" data-step="13"
-                            data-name="Гиперэкстензия (с блином на груди)"
-                            data-sets="3" data-rest="45">
-                        <span class="exercise__num">11</span>
-                        <span class="exercise__name">Гиперэкстензия (с блином на груди)</span>
+                        <span class="exercise__name">Гиперэкстензия</span>
                         <span class="exercise__icon" aria-hidden="true">
                             <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
                         </span>
@@ -216,7 +267,7 @@
         <section class="progress reveal" aria-label="Прогресс тренировки">
             <div class="progress__head">
                 <span class="progress__title">Прогресс</span>
-                <span class="progress__counter" id="progress-counter">0 / 14</span>
+                <span class="progress__counter" id="progress-counter">0 / 13</span>
             </div>
             <div class="progress__bar">
                 <div class="progress__fill" id="progress-fill"></div>
@@ -250,11 +301,12 @@
         <section class="notes reveal">
             <h2 class="notes__title">Твои пометки</h2>
             <ul class="notes__list">
-                <li class="notes__item"><strong>Пирамида (упр. 1):</strong> первые два подхода — разминочные (отдых 60 сек), остальные — рабочие (отдых 120 сек).</li>
-                <li class="notes__item"><strong>Низ груди — твой приоритет.</strong> Жим на опущенной скамье и брусья обязательны.</li>
-                <li class="notes__item"><strong>Колени не страдают</strong> — все упражнения выполняются сидя, лёжа или с опорой.</li>
-                <li class="notes__item"><strong>Тяга Т-грифа:</strong> разминка 25 кг, потом 40 кг, потом 2 подхода по 50 кг.</li>
-                <li class="notes__item"><strong>Суперсет не предусмотрен</strong> — делай всё по отдельности с отдыхом.</li>
+                <li class="notes__item"><strong>Жим от груди (упр. 1):</strong> В формате пирамиды: первые два подхода — разминочные (отдых 60 сек), остальные — рабочие (отдых 120 сек). Широкий хват</li>
+                <li class="notes__item"><strong>Верхние тяги (упр. 2 и 3):</strong> Сначала широкий хват (вес большой), потом узкий хват (вес уже средний), шлифуем</li>
+                <li class="notes__item"><strong>Жим гантелей (упр. 4):</strong> на опущенной скамье для низа груди</li>
+                <li class="notes__item"><strong>Жим гантелей (упр. 5):</strong> на приподнятой скамье для верха груди</li>
+                <li class="notes__item"><strong>Горизонтальные тяги (упр. 7):</strong> тянем на тросовом тренажёре (раздельные ручки, сидя)</li>
+                <li class="notes__item"><strong>Низ груди</strong> Жим на опущенной скамье и брусья обязательны. Приоритет!</li>
             </ul>
         </section>
 
@@ -275,8 +327,8 @@
                 <svg viewBox="0 0 24 24" width="16" height="16"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></svg>
             </button>
 
-            <h3 class="modal__title">Настройка</h3>
-            <p class="modal__name" id="modal-name">Упражнение</p>
+            <h3 class="modal__title" id="modal-name">Упражнение</h3>
+            <p class="modal__set">Настройка:</p>
 
             <!-- ЭКРАН 1: НАСТРОЙКА -->
             <div class="modal__screen is-active" data-screen="setup">
@@ -294,7 +346,7 @@
                 </div>
 
                 <div class="modal__field">
-                    <span class="modal__field-label">Отдых между подходами (сек)</span>
+                    <span class="modal__field-label">Отдых (сек)</span>
                     <div class="stepper">
                         <button class="stepper__btn" type="button" data-target="m-rest" data-delta="-5" aria-label="Меньше">
                             <svg viewBox="0 0 24 24" width="16" height="16"><path fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" d="M6 12h12"/></svg>
@@ -322,7 +374,7 @@
             <div class="modal__screen" data-screen="input">
                 <p class="modal__step-label">Подход <span id="m-input-set">1</span> из <span id="m-input-total">4</span></p>
                 <div class="modal__field">
-                    <span class="modal__field-label">Повторения за подход</span>
+                    <span class="modal__field-label">Кол-во повторений</span>
                     <div class="stepper">
                         <button class="stepper__btn" type="button" data-target="m-reps" data-delta="-1" aria-label="Меньше">
                             <svg viewBox="0 0 24 24" width="16" height="16"><path fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" d="M6 12h12"/></svg>

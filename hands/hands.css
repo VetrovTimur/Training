@@ -137,6 +137,12 @@ body.modal-open { overflow: hidden; }
     letter-spacing: 1px;
     text-align: center;
 
+    background: linear-gradient(135deg, var(--color-red), #4a0001);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+
     text-shadow:
         0 2px 7px  rgba(var(--theme-rgb), .5),
         0 5px 15px rgba(var(--theme-rgb), .25),
@@ -150,14 +156,6 @@ body.modal-open { overflow: hidden; }
 .page__title.is-shown {
     opacity: 1;
     transform: translateY(0);
-}
-
-.page__title-accent {
-    background: linear-gradient(135deg, var(--color-red), #4a0001);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
 }
 
 .page__title.is-font-changed {
@@ -196,6 +194,11 @@ body.modal-open { overflow: hidden; }
 .header__tag {
     padding: 3px 10px;
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+
     background: #1d232e;
     border: 1px solid #2d3442;
     border-radius: var(--radius-pill);
@@ -203,6 +206,15 @@ body.modal-open { overflow: hidden; }
     font-weight: 500;
     font-size: 11px;
     color: #cdd3df;
+}
+
+.header__icon {
+    width: 16px;
+    height: 16px;
+}
+
+.header__icon--accent {
+    color: var(--theme);
 }
 
 .header__tag em {
@@ -229,6 +241,7 @@ body.modal-open { overflow: hidden; }
 
     width: 24px;
     height: 24px;
+    padding: 5px;
 
     background: linear-gradient(135deg, var(--theme), var(--theme-tint));
     border-radius: 50%;
@@ -348,8 +361,8 @@ body.modal-open { overflow: hidden; }
 }
 
 .card__icon {
-    font-size: 18px;
-    line-height: 1;
+    width: 18px;
+    height: 18px;
 }
 
 .card__sub {
@@ -413,7 +426,7 @@ body.modal-open { overflow: hidden; }
     border-radius: 50%;
 
     font-weight: 600;
-    font-size: 12px;
+    font-size: 14px;
     color: #0b0d11;
 }
 
@@ -903,9 +916,9 @@ tr.results__group-end td {
 
     box-shadow:
         0 0 0 1px rgba(var(--theme-rgb), .08),
-        0 2px 20px rgba(var(--theme-rgb), .35),
-        0 0 80px  rgba(var(--theme-rgb), .15),
-        0 0 140px rgba(var(--theme-rgb), .08);
+        0 2px 10px rgba(var(--theme-rgb), .35),
+        0 0 20px  rgba(var(--theme-rgb), .15),
+        0 0 30px rgba(var(--theme-rgb), .08);
 
     overflow-y: auto;
 
@@ -950,27 +963,29 @@ tr.results__group-end td {
 }
 
 .modal__title {
-    margin-bottom: 4px;
-    padding-right: 34px;
+    margin-top: 20px;
+    margin-bottom: 15px;
 
     font-family: "Rubik Dirt", system-ui;
     font-weight: 400;
-    font-size: 22px;
+    font-size: 16px;
     letter-spacing: 3px;
     text-transform: uppercase;
+    text-align: center;
     color: var(--theme);
 
     text-shadow: 0 0 24px rgba(var(--theme-rgb), .4);
 }
 
-.modal__dialog:not([data-active-screen="setup"]) .modal__title {
+.modal__dialog:not([data-active-screen="setup"]) .modal__title,
+.modal__dialog:not([data-active-screen="setup"]) .modal__set {
     display: none;
 }
 
-.modal__name {
-    margin-bottom: 18px;
+.modal__set {
+    margin-bottom: 7px;
 
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 500;
     color: var(--color-text-muted);
     letter-spacing: .3px;
@@ -1074,8 +1089,9 @@ tr.results__group-end td {
 .modal__check input[type="checkbox"] {
     width: 16px;
     height: 16px;
-    accent-color: var(--color-gold);
+    accent-color: var(--theme);
     cursor: pointer;
+    
 }
 
 .modal__btn {
@@ -1083,7 +1099,7 @@ tr.results__group-end td {
     width: 100%;
     padding: 14px 16px;
 
-    background: linear-gradient(135deg, var(--theme), #8a0001);
+    background: transparent;
     border: none;
     border-radius: 12px;
 
@@ -1095,29 +1111,31 @@ tr.results__group-end td {
     color: #fff;
 
     cursor: pointer;
-    transition: transform .2s ease, box-shadow .2s ease;
+    transition: .35s ease;
 
     box-shadow:
-        0 6px 20px rgba(var(--theme-rgb), .4),
-        0 0 30px rgba(var(--theme-rgb), .25);
+        0 0 5px rgba(var(--theme-rgb), .4),
+        0 0 10px rgba(var(--theme-rgb), .25);
+
 }
 
 .modal__btn:hover {
     transform: translateY(-1px);
+    background: linear-gradient(135deg, var(--theme), #8a0001);
     box-shadow:
-        0 8px 26px rgba(var(--theme-rgb), .55),
-        0 0 40px rgba(var(--theme-rgb), .35);
+        0 0 5px  rgba(var(--theme-rgb), .55),
+        0 0 10px rgba(var(--theme-rgb), .35);
 }
 
 .modal__btn:active {
-    transform: translateY(0);
+    transform: scale(.98);
     box-shadow:
         0 4px 16px rgba(var(--theme-rgb), .35),
         0 0 20px rgba(var(--theme-rgb), .2);
 }
 
 .modal__step-label {
-    margin-bottom: 4px;
+    margin-bottom: 6px;
     text-align: center;
 
     font-size: 11px;
@@ -1141,8 +1159,8 @@ tr.results__group-end td {
 }
 
 .modal__status--rest {
-    color: var(--color-gold);
-    text-shadow: 0 0 20px rgba(var(--gold-rgb), .35);
+    color: var(--theme);
+    text-shadow: 0 0 20px rgba(var(--red-rgb), .35);
 }
 
 .modal__timer {
@@ -1162,10 +1180,10 @@ tr.results__group-end td {
 }
 
 .modal__timer--rest {
-    color: var(--color-gold);
+    color: var(--color-red);
     text-shadow:
-        0 0 20px rgba(var(--gold-rgb), .3),
-        0 0 40px rgba(var(--gold-rgb), .15);
+        0 0 20px rgba(var(--red-rgb), .3),
+        0 0 40px rgba(var(--red-rgb), .15);
 }
 
 .modal__dots {
@@ -1201,9 +1219,9 @@ tr.results__group-end td {
 
 /* Текущая — золотая */
 .modal__dot.is-current {
-    background: var(--color-gold);
+    background: #fff;
     transform: scale(1.25);
-    box-shadow: 0 0 14px rgba(var(--gold-rgb), .7);
+    box-shadow: 0 0 5px rgba(255, 255, 255, .7);
 }
 
 
@@ -1363,7 +1381,7 @@ tr.results__group-end td {
     .header__tag  { padding: 5px 16px; font-size: 13px; }
 
     .badge         { padding: 6px 18px 6px 14px; }
-    .badge__avatar { width: 32px; height: 32px; font-size: 18px; }
+    .badge__avatar { width: 32px; height: 32px;}
     .badge__name   { font-size: 14px; }
 
     .card {
@@ -1377,7 +1395,7 @@ tr.results__group-end td {
     }
 
     .card__title { font-size: 20px; gap: 12px; }
-    .card__icon  { font-size: 26px; }
+    .card__icon  { width: 26px; height: 26px; }
     .card__sub   { padding-left: 40px; margin-bottom: 16px; font-size: 14px; }
 
     .exercises { gap: 10px; }
@@ -1471,7 +1489,7 @@ tr.results__group-end td {
     }
 
     .modal__title { font-size: 26px; }
-    .modal__name  { font-size: 15px; }
+    .modal__set  { font-size: 15px; }
 
     .stepper { grid-template-columns: 50px 1fr 50px; }
 
